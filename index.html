@@ -1,73 +1,1010 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SevDesign</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#2D5A46">
+  <meta name="description" content="Personal Trainer especialista em Treinamento Funcional, Reabilitação, Idosos e pessoas com limitações físicas. Atendimento particular e individualizado.">
+  <title>Dra. Camila Torres | Personal Trainer & Reabilitação Funcional</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Fonts: Plus Jakarta Sans para leitura impecável e acessível -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <style>
+    :root {
+      /* Paleta acolhedora com verde sálvia, eucalipto e neutros quentes */
+      --color-primary: #244b3a;
+      --color-primary-light: #376a52;
+      --color-primary-soft: #eaf3ee;
+      --color-primary-border: #c4ded2;
+      --color-accent: #c48b4d;
+      --color-accent-soft: #fcf6ed;
+      --color-whatsapp: #25d366;
+      --color-whatsapp-dark: #128c7e;
+
+      /* Escala neutra de alto contraste (WCAG AAA/AA) */
+      --bg-page: #f7f9f7;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #ffffff;
+      --text-main: #18231e;
+      --text-muted: #4e5d56;
+      --text-light: #708078;
+      --border-subtle: #e2ebe6;
+
+      /* Sombras elegantes */
+      --shadow-sm: 0 2px 6px rgba(36, 75, 58, 0.04);
+      --shadow-md: 0 8px 20px rgba(36, 75, 58, 0.08);
+      --shadow-lg: 0 14px 34px rgba(36, 75, 58, 0.12);
+
+      /* Dimensões e raios */
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --container-max-w: 520px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 16px 12px 90px;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: var(--container-max-w);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .profile-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 32px 20px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(135deg, var(--color-primary-soft) 0%, #d8ece2 100%);
+      z-index: 0;
+    }
+
+    .avatar-container {
+      position: relative;
+      width: 116px;
+      height: 116px;
+      margin: 0 auto 16px;
+      z-index: 1;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      border: 4px solid var(--bg-surface);
+      box-shadow: var(--shadow-md);
+      background-color: #ddd;
+    }
+
+    .verified-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 4px;
+      background: var(--color-primary);
+      color: white;
+      width: 26px;
+      height: 26px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2.5px solid var(--bg-surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .profile-name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .cref-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-primary-light);
+      background: var(--color-primary-soft);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 10px;
+      border: 1px solid var(--color-primary-border);
+    }
+
+    .profile-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .profile-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin: 0 auto 16px;
+      line-height: 1.5;
+    }
+
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .pill-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: #f1f5f2;
+      color: var(--color-primary);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid #dce8e1;
+    }
+
+    .cta-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .btn-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.02rem;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 22px rgba(36, 75, 58, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+      transform: rotate(30deg);
+      animation: pulseShimmer 3.5s infinite;
+    }
+
+    @keyframes pulseShimmer {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      100% { transform: translateX(100%) rotate(30deg); }
+    }
+
+    .btn-primary:hover, .btn-primary:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(36, 75, 58, 0.32);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--color-primary);
+      border-color: var(--color-primary-border);
+    }
+
+    .btn-secondary:hover, .btn-secondary:focus-visible {
+      background: var(--color-primary-soft);
+      transform: translateY(-2px);
+    }
+
+    .btn-action .btn-icon-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .btn-action .btn-content {
+      flex: 1;
+      text-align: left;
+    }
+
+    .btn-action .btn-subtitle {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 1px;
+    }
+
+    .section-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      list-style: none;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px;
+      background: #fafcfb;
+      border-radius: var(--radius-md);
+      border: 1px solid #edf4f0;
+    }
+
+    .step-badge {
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      border: 1.5px solid var(--color-primary-border);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .step-info h3 {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .step-info p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .modalities-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 440px) {
+      .modalities-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .modality-card {
+      background: #fafcfb;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: left;
+      transition: transform 0.2s ease;
+    }
+
+    .modality-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-primary-border);
+    }
+
+    .modality-card.full-width {
+      grid-column: 1 / -1;
+      background: var(--color-accent-soft);
+      border-color: #eedcc6;
+    }
+
+    .modality-icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .modality-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+
+    .modality-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .testimonial-card {
+      background: #fafcfb;
+      border-radius: var(--radius-md);
+      padding: 18px;
+      border-left: 4px solid var(--color-primary);
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 12px;
+    }
+
+    .testimonial-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .testimonial-quote {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+    }
+
+    .author-name {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .author-condition {
+      color: var(--text-light);
+      font-size: 0.78rem;
+    }
+
+    .accordion-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #ffffff;
+      transition: border-color 0.2s;
+    }
+
+    .faq-item.is-open {
+      border-color: var(--color-primary-border);
+      background: #fbfdfc;
+    }
+
+    .faq-trigger {
+      width: 100%;
+      text-align: left;
+      padding: 16px 18px;
+      background: transparent;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      transition: color 0.2s;
+    }
+
+    .faq-trigger:hover, .faq-trigger:focus-visible {
+      color: var(--color-primary);
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-primary);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-item.is-open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0 18px;
+    }
+
+    .faq-content {
+      padding-bottom: 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .footer-area {
+      text-align: center;
+      padding: 24px 16px 12px;
+      color: var(--text-light);
+      font-size: 0.84rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      color: var(--color-primary);
+      border: 1px solid var(--border-subtle);
+      text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-2px);
+      background: var(--color-primary-soft);
+    }
+
+    .copyright {
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    .float-whatsapp-wrap {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .float-tooltip {
+      background: #1e3a2d;
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-md);
+      pointer-events: none;
+      animation: floatFade 4s ease-in-out infinite alternate;
+      display: none;
+    }
+
+    @media (min-width: 400px) {
+      .float-tooltip {
+        display: block;
+      }
+    }
+
+    @keyframes floatFade {
+      0% { opacity: 0.85; transform: translateY(0); }
+      100% { opacity: 1; transform: translateY(-4px); }
+    }
+
+    .float-whatsapp-btn {
+      width: 58px;
+      height: 58px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      text-decoration: none;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .float-whatsapp-btn:hover, .float-whatsapp-btn:focus-visible {
+      transform: scale(1.08);
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.5);
+    }
+
+    .float-whatsapp-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    /* Utilitários de acessibilidade */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="head-container">
-            <img class="logo" src="images/logo.png" alt="">
-            <h1 class="title">Tudo de melhor reunido em único lugar</h1>
+  <div class="page-wrapper">
+    
+    <!-- HEADER / PERFIL -->
+    <header class="profile-card" itemscope itemtype="https://schema.org/Person">
+      <div class="avatar-container">
+        <img 
+          src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=400&q=80" 
+          alt="Foto de perfil profissional da Personal Trainer Dra. Camila Torres sorridente" 
+          class="avatar-img"
+          itemprop="image"
+          onerror="this.src='https://placehold.co/240x240/2D5A46/ffffff?text=Camila+Torres'"
+        >
+        <span class="verified-badge" title="Profissional Certificada">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </span>
+      </div>
+
+      <h1 class="profile-name" itemprop="name">Dra. Camila Torres</h1>
+      <span class="cref-tag" itemprop="identifier">CREF 012345-G/CE</span>
+      
+      <p class="profile-title" itemprop="jobTitle">
+        Personal Trainer | Treinamento Funcional & Reabilitação
+      </p>
+
+      <p class="profile-desc" itemprop="description">
+        Treinos 100% individualizados e seguros. Devolvendo autonomia, alívio de dores articulares e disposição para idosos e pessoas em recuperação de lesões.
+      </p>
+
+      <div class="tags-container" aria-label="Especialidades">
+        <span class="pill-tag">✦ Longevidade & Idosos</span>
+        <span class="pill-tag">✦ Sem Dores na Coluna / Joelho</span>
+        <span class="pill-tag">✦ Atendimento Domiciliar</span>
+      </div>
+    </header>
+
+    <section class="cta-stack" aria-label="Ações Principais">
+      <!-- Botão Primário WhatsApp -->
+      <a 
+        href="#" 
+        id="btnAgendarConsulta"
+        class="btn-action btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Agende sua avaliação ou consulta com a Dra. Camila pelo WhatsApp"
+      >
+        <span class="btn-icon-left" aria-hidden="true">💬</span>
+        <span class="btn-content">
+          <span>Agende sua Avaliação / Consulta</span>
+          <span class="btn-subtitle">Conversa inicial sem compromisso no WhatsApp</span>
+        </span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+
+      <!-- Botão Secundário Âncora/Informação -->
+      <a 
+        href="#modalidades-section" 
+        class="btn-action btn-secondary"
+        aria-label="Ver locais e formatos de atendimento"
+      >
+        <span class="btn-icon-left" aria-hidden="true">📍</span>
+        <span class="btn-content">
+          <span>Locais & Formatos de Atendimento</span>
+          <span class="btn-subtitle">A domicílio, condomínio ou parceiros</span>
+        </span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+    </section>
+
+    <section class="section-card" aria-labelledby="como-funciona-title">
+      <div class="section-header">
+        <p class="section-subtitle">Metodologia Segura</p>
+        <h2 id="como-funciona-title" class="section-title">Como Funciona o Acompanhamento</h2>
+      </div>
+
+      <ol class="steps-list">
+        <li class="step-item">
+          <div class="step-badge" aria-hidden="true">1</div>
+          <div class="step-info">
+            <h3>Anamnese e Avaliação Funcional</h3>
+            <p>Conversamos sobre seu histórico médico, cirurgias, exames, dores articulares e limitações de movimento atuais.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-badge" aria-hidden="true">2</div>
+          <div class="step-info">
+            <h3>Plano 100% Adaptado ao Seu Ritmo</h3>
+            <p>Construção de uma rotina de exercícios com progressão gradual, focada em fortalecimento postural, equilíbrio e autonomia diária.</p>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-badge" aria-hidden="true">3</div>
+          <div class="step-info">
+            <h3>Acompanhamento Rigoroso e Cuidadoso</h3>
+            <p>Correção minuciosa de cada postura em tempo real, garantindo segurança absoluta e zero sobrecarga desnecessária.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="modalidades-section" class="section-card" aria-labelledby="modalidades-title">
+      <div class="section-header">
+        <p class="section-subtitle">Flexibilidade e Comodidade</p>
+        <h2 id="modalidades-title" class="section-title">Locais & Horários de Atendimento</h2>
+      </div>
+
+      <div class="modalities-grid">
+        <div class="modality-card">
+          <div class="modality-icon" aria-hidden="true">🏡</div>
+          <h3 class="modality-title">A Domicílio / Condomínio</h3>
+          <p class="modality-desc">Levo os materiais necessários para a comodidade e privacidade do seu lar.</p>
         </div>
 
-        <div class="body-container">
-            <!-- botões/nomes das seções -->
-            <div class="body-section">
-                <div class="section-text active" id="btn-links">Links</div>
-                <div class="section-text" id="btn-service">Serviços</div>
-            </div>
-
-            <!-- linhas das seções -->
-            <div class="body-line">
-                <div class="line active" id="links-line"></div>
-                <div class="line" id="service-line"></div>
-            </div>
-
-            <!-- elementos das seções -->
-            <a class="links-element" href="https://www.instagram.com/_sevdesign_" target="_blank">
-                <img class="link-icon" src="images/icon.png" alt="">
-                <div class="text">
-                    <h2 class="link-title">_sevdesign_</h2>
-                    <p class="link-description">Já viu nosso instagram? Clique aqui!</p>
-                </div>
-            </a>
-
-            <a class="links-element" href="https://www.instagram.com/decodificando._" target="_blank">
-                <img class="link-icon" src="images/icon_deco.png" alt="">
-                <div class="text">
-                    <h2 class="link-title">decodificando._</h2>
-                    <p class="link-description">Confira nossos parceiros!</p>
-                </div>
-            </a>
-
-            <a class="links-element" href="https://www.instagram.com/sevjuri_" target="_blank">
-                <img class="link-icon" src="images/icon_juri.png" alt="">
-                <div class="text">
-                    <h2 class="link-title">sevjuri_</h2>
-                    <p class="link-description">Confira nossos parceiros!</p>
-                </div>
-            </a>
-
-
-            <!-- elementos das seções -->
-            <div class="service-element">
-                <h2 class="service-title">Link-Page</h2>
-                <p class="service-description">A melhor forma de direcionar seus clientes para você!</p> 
-            </div>
-
-            <a class="service-element" href="material/Orçamento de combos.pdf" target="_blank">
-                <h2 class="service-title">Nossos Planos e Combos</h2>
-                <p class="service-description">Veja nossos planos e combos personalizados!</p> 
-            </a>
+        <div class="modality-card">
+          <div class="modality-icon" aria-hidden="true">🏢</div>
+          <h3 class="modality-title">Espaço / Clínicas Parceiras</h3>
+          <p class="modality-desc">Ambientes equipados, climatizados e acessíveis para treino guiado.</p>
         </div>
-    </div>
+
+        <div class="modality-card full-width">
+          <div class="modality-icon" aria-hidden="true">⏰</div>
+          <h3 class="modality-title">Turnos Disponíveis (Vagas Limitadas)</h3>
+          <p class="modality-desc"><strong>Manhã:</strong> 06:30 às 11:30 | <strong>Tarde:</strong> 15:00 às 19:30.<br>Sessões particulares de 50 a 60 minutos com hora marcada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card" aria-labelledby="depoimentos-title">
+      <div class="section-header">
+        <p class="section-subtitle">Histórias Reais de Superação</p>
+        <h2 id="depoimentos-title" class="section-title">O Que Dizem os Alunos</h2>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Aos 71 anos, achava que as dores no joelho e o medo de cair eram definitivos. Com 3 meses de treino funcional guiado pela Camila, voltei a subir escadas e brincar com meus netos sem dor."</p>
+        <div class="testimonial-author">
+          <span class="author-name">Dona Lourdes M., 71 anos</span>
+          <span class="author-condition">Artrose e Fortalecimento</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Tive uma hérnia de disco lombar grave e sentia medo de qualquer exercício. A atenção dela na postura e nos limites do meu corpo me devolveu a confiança para viver normalmente."</p>
+        <div class="testimonial-author">
+          <span class="author-name">Roberto Santos, 54 anos</span>
+          <span class="author-condition">Reabilitação de Coluna</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Paciência, didática e pontualidade ímpar. Ela respeita o dia que estou mais cansada e adapta o treino sem forçar. Recomendo de olhos fechados!"</p>
+        <div class="testimonial-author">
+          <span class="author-name">Maria Helena, 68 anos</span>
+          <span class="author-condition">Atendimento Domiciliar</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card" aria-labelledby="faq-title">
+      <div class="section-header">
+        <p class="section-subtitle">Tire suas Dúvidas</p>
+        <h2 id="faq-title" class="section-title">Perguntas Frequentes</h2>
+      </div>
+
+      <div class="accordion-group" id="faqAccordion">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-1" id="faq-q-1">
+            <span>Nunca treinei ou já sou idoso(a), posso começar?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-body" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
+            <div class="faq-content">
+              Sim, com certeza! O treinamento funcional terapêutico é especialmente desenhado para quem está há muito tempo parado ou na terceira idade. Começamos com movimentos naturais do dia a dia (sentar, levantar, equilibrar) com carga zero ou muito leve, no seu tempo.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
+            <span>Tenho dor no joelho ou hérnia de disco. É seguro treinar?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-body" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
+            <div class="faq-content">
+              O exercício bem orientado é hoje a principal recomendação médica para tratar e prevenir crises de coluna e artrose. Não realizamos movimentos de impacto ou risco; fortalecemos a musculatura de sustentação para tirar a sobrecarga da sua articulação.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
+            <span>Como funciona a primeira sessão ou avaliação?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-body" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
+            <div class="faq-content">
+              Nosso primeiro encontro é focado em conversar: lemos seus exames e laudos, avaliamos sua mobilidade e flexibilidade básica, e realizamos testes leves para entender suas capacidades e definir metas sem desgaste excessivo.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
+            <span>Preciso ter pesos e aparelhos em casa?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-body" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
+            <div class="faq-content">
+              Não se preocupe! Eu levo todos os elásticos terapêuticos (théra-bands), minibands, apoios de equilíbrio, colchonetes especiais e instrumentos necessários para a sessão diretamente na sua casa ou condomínio.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-area">
+      <nav class="social-links" aria-label="Redes Sociais">
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Acessar Instagram da Personal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+
+        <!-- E-mail -->
+        <a href="mailto:contato@camilatorrespersonal.com.br" class="social-btn" aria-label="Enviar um e-mail">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Telefone Direto -->
+        <a href="tel:+5588999999999" class="social-btn" aria-label="Ligar para o telefone de contato">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </a>
+      </nav>
+
+      <p class="copyright">
+        &copy; <span id="currentYear"></span> Dra. Camila Torres • CREF 012345-G/CE<br>
+        Saúde, mobilidade e longevidade com acompanhamento individual.
+      </p>
+    </footer>
+
+  </div>
+
+  <div class="float-whatsapp-wrap">
+    <div class="float-tooltip">Agendar pelo WhatsApp</div>
+    <a 
+      href="#" 
+      id="floatWhatsApp" 
+      class="float-whatsapp-btn" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      aria-label="Abrir conversa no WhatsApp para agendamento de consulta"
+    >
+      <svg viewBox="0 0 24 24">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.106 8.106 0 0 1-1.24-4.29c0-4.5 3.66-8.16 8.16-8.16 2.18 0 4.23.85 5.77 2.39a8.103 8.103 0 0 1 2.39 5.77c0 4.5-3.66 8.16-8.16 8.16zm4.47-6.11c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    /**
+     * Interface de configuração para WhatsApp
+     */
+    interface WhatsAppConfig {
+      phoneNumber: string; // Formato internacional sem + ou traços (Ex: 5588999999999)
+      defaultMessage: string;
+    }
+
+    /**
+     * Controlador da Página da Personal Trainer
+     */
+    class PersonalTrainerBioApp {
+      private config: WhatsAppConfig = {
+        phoneNumber: '5588999999999', // Substituir pelo número real
+        defaultMessage: 'Olá, Dra. Camila! Gostaria de agendar uma avaliação física e saber mais sobre o atendimento particular de treino funcional.'
+      };
+
+      constructor() {
+        this.init();
+      }
+
+      public init(): void {
+        this.setupCurrentYear();
+        this.setupWhatsAppLinks();
+        this.setupAccordion();
+      }
+
+      /**
+       * Atualiza o ano no rodapé automaticamente
+       */
+      private setupCurrentYear(): void {
+        const yearElement = document.getElementById('currentYear');
+        if (yearElement) {
+          yearElement.textContent = new Date().getFullYear().toString();
+        }
+      }
+
+      /**
+       * Configura os botões de CTA com a URL codificada do WhatsApp
+       */
+      private setupWhatsAppLinks(): void {
+        const encodedMessage = encodeURIComponent(this.config.defaultMessage);
+        const waUrl = `https://wa.me/${this.config.phoneNumber}?text=${encodedMessage}`;
+
+        const btnAgendar = document.getElementById('btnAgendarConsulta') as HTMLAnchorElement | null;
+        const btnFloat = document.getElementById('floatWhatsApp') as HTMLAnchorElement | null;
+
+        if (btnAgendar) {
+          btnAgendar.href = waUrl;
+        }
+
+        if (btnFloat) {
+          btnFloat.href = waUrl;
+        }
+      }
+
+      /**
+       * Configura a lógica de acessibilidade e animação da sanfona FAQ
+       */
+      private setupAccordion(): void {
+        const triggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+
+        triggers.forEach((trigger) => {
+          trigger.addEventListener('click', () => {
+            const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+            const item = trigger.closest('.faq-item');
+            const body = item?.querySelector<HTMLElement>('.faq-body');
+
+            if (!item || !body) return;
+
+            // Fecha itens irmãos se desejar comportamento exclusivo (accordion único)
+            triggers.forEach((otherTrigger) => {
+              if (otherTrigger !== trigger) {
+                otherTrigger.setAttribute('aria-expanded', 'false');
+                const otherItem = otherTrigger.closest('.faq-item');
+                const otherBody = otherItem?.querySelector<HTMLElement>('.faq-body');
+                if (otherItem && otherBody) {
+                  otherItem.classList.remove('is-open');
+                  otherBody.style.maxHeight = '0px';
+                }
+              }
+            });
+
+            // Alterna o item atual
+            if (isExpanded) {
+              trigger.setAttribute('aria-expanded', 'false');
+              item.classList.remove('is-open');
+              body.style.maxHeight = '0px';
+            } else {
+              trigger.setAttribute('aria-expanded', 'true');
+              item.classList.add('is-open');
+              body.style.maxHeight = body.scrollHeight + 'px';
+            }
+          });
+        });
+      }
+    }
+
+    // Inicialização segura após o carregamento da DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      new PersonalTrainerBioApp();
+    });
+  </script>
 </body>
-
-<script src="script.js" type="module"></script>
 </html>
