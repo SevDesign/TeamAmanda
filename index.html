@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#2D5A46">
-  <meta name="description" content="Personal Trainer especialista em Treinamento Funcional, Reabilitação, Idosos e pessoas com limitações físicas. Atendimento particular e individualizado.">
-  <title>Dra. Camila Torres | Personal Trainer & Reabilitação Funcional</title>
+  <meta name="theme-color" content="#a84a5a">
+  <meta name="description" content="Amanda Saraiva - Personal Trainer e Treinamento Funcional em Forquilha e Sobral. Foco em saúde, autonomia e qualidade de vida para mulheres 40+ e pessoas idosas.">
+  <title>Amanda Saraiva | Personal Trainer & Treinamento Funcional</title>
 
   <!-- Google Fonts: Plus Jakarta Sans para leitura impecável e acessível -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,29 +14,29 @@
 
   <style>
     :root {
-      /* Paleta acolhedora com verde sálvia, eucalipto e neutros quentes */
-      --color-primary: #244b3a;
-      --color-primary-light: #376a52;
-      --color-primary-soft: #eaf3ee;
-      --color-primary-border: #c4ded2;
-      --color-accent: #c48b4d;
-      --color-accent-soft: #fcf6ed;
+      /* Paleta Rosa Acolhedor, Leve e Acessível (Alto contraste para 40+ e Idosos) */
+      --color-primary: #a84a5a;
+      --color-primary-light: #c86b7b;
+      --color-primary-soft: #fceef1;
+      --color-primary-border: #f0cfd6;
+      --color-accent: #b57c56;
+      --color-accent-soft: #fdf5ef;
       --color-whatsapp: #25d366;
       --color-whatsapp-dark: #128c7e;
 
-      /* Escala neutra de alto contraste (WCAG AAA/AA) */
-      --bg-page: #f7f9f7;
+      /* Escala neutra quente de alto contraste (WCAG AAA/AA) */
+      --bg-page: #fdfaf9;
       --bg-surface: #ffffff;
       --bg-surface-elevated: #ffffff;
-      --text-main: #18231e;
-      --text-muted: #4e5d56;
-      --text-light: #708078;
-      --border-subtle: #e2ebe6;
+      --text-main: #2b1d20;
+      --text-muted: #634f53;
+      --text-light: #8a7378;
+      --border-subtle: #f3e4e7;
 
-      /* Sombras elegantes */
-      --shadow-sm: 0 2px 6px rgba(36, 75, 58, 0.04);
-      --shadow-md: 0 8px 20px rgba(36, 75, 58, 0.08);
-      --shadow-lg: 0 14px 34px rgba(36, 75, 58, 0.12);
+      /* Sombras suaves e acolhedoras */
+      --shadow-sm: 0 2px 8px rgba(168, 74, 90, 0.05);
+      --shadow-md: 0 10px 24px rgba(168, 74, 90, 0.09);
+      --shadow-lg: 0 16px 36px rgba(168, 74, 90, 0.14);
 
       /* Dimensões e raios */
       --radius-sm: 10px;
@@ -60,13 +60,14 @@
     body {
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       background-color: var(--bg-page);
+      background-image: radial-gradient(circle at 50% 0%, #fceef1 0%, transparent 60%);
       color: var(--text-main);
       line-height: 1.6;
       font-size: 16px;
       display: flex;
       justify-content: center;
       min-height: 100vh;
-      padding: 16px 12px 90px;
+      padding: 16px 12px 96px;
     }
 
     .page-wrapper {
@@ -74,9 +75,22 @@
       max-width: var(--container-max-w);
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 22px;
     }
 
+    /* Animação suave de entrada ao rolar a página */
+    .reveal-section {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CARD DE PERFIL */
     .profile-card {
       background: var(--bg-surface);
       border-radius: var(--radius-lg);
@@ -94,16 +108,16 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 80px;
-      background: linear-gradient(135deg, var(--color-primary-soft) 0%, #d8ece2 100%);
+      height: 88px;
+      background: linear-gradient(135deg, var(--color-primary-soft) 0%, #f7dce2 100%);
       z-index: 0;
     }
 
     .avatar-container {
       position: relative;
-      width: 116px;
-      height: 116px;
-      margin: 0 auto 16px;
+      width: 118px;
+      height: 118px;
+      margin: 0 auto 14px;
       z-index: 1;
     }
 
@@ -114,7 +128,7 @@
       object-fit: cover;
       border: 4px solid var(--bg-surface);
       box-shadow: var(--shadow-md);
-      background-color: #ddd;
+      background-color: var(--color-primary-soft);
     }
 
     .verified-badge {
@@ -123,8 +137,8 @@
       right: 4px;
       background: var(--color-primary);
       color: white;
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: var(--radius-full);
       display: flex;
       align-items: center;
@@ -134,10 +148,10 @@
     }
 
     .profile-name {
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--color-primary);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       letter-spacing: -0.01em;
     }
 
@@ -147,17 +161,17 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--color-primary-light);
+      color: var(--color-primary);
       background: var(--color-primary-soft);
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: var(--radius-full);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       border: 1px solid var(--color-primary-border);
     }
 
     .profile-title {
-      font-size: 0.98rem;
-      font-weight: 600;
+      font-size: 1.02rem;
+      font-weight: 700;
       color: var(--text-main);
       margin-bottom: 10px;
       line-height: 1.4;
@@ -166,28 +180,63 @@
     .profile-desc {
       font-size: 0.92rem;
       color: var(--text-muted);
-      max-width: 440px;
-      margin: 0 auto 16px;
-      line-height: 1.5;
+      max-width: 450px;
+      margin: 0 auto 18px;
+      line-height: 1.55;
     }
 
+    /* Tags Interativas com Feedback Simples */
     .tags-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 6px;
+      gap: 7px;
     }
 
     .pill-tag {
-      font-size: 0.78rem;
+      font-family: inherit;
+      font-size: 0.79rem;
       font-weight: 600;
-      background: #f1f5f2;
+      background: #fdf6f7;
       color: var(--color-primary);
-      padding: 5px 12px;
+      padding: 6px 13px;
       border-radius: var(--radius-full);
-      border: 1px solid #dce8e1;
+      border: 1px solid var(--color-primary-border);
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
 
+    .pill-tag:hover,
+    .pill-tag.active {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-color: var(--color-primary);
+      transform: translateY(-1px);
+    }
+
+    .tag-feedback-box {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: var(--color-primary-soft);
+      border: 1px solid var(--color-primary-border);
+      border-radius: var(--radius-sm);
+      font-size: 0.83rem;
+      color: var(--text-main);
+      line-height: 1.45;
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .tag-feedback-box.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* BOTÕES DE AÇÃO PRINCIPAIS */
     .cta-stack {
       display: flex;
       flex-direction: column;
@@ -213,7 +262,7 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
       color: #ffffff;
-      box-shadow: 0 8px 22px rgba(36, 75, 58, 0.25);
+      box-shadow: 0 8px 22px rgba(168, 74, 90, 0.26);
       position: relative;
       overflow: hidden;
     }
@@ -225,9 +274,9 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.16), transparent);
       transform: rotate(30deg);
-      animation: pulseShimmer 3.5s infinite;
+      animation: pulseShimmer 3.8s infinite;
     }
 
     @keyframes pulseShimmer {
@@ -237,7 +286,7 @@
 
     .btn-primary:hover, .btn-primary:focus-visible {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(36, 75, 58, 0.32);
+      box-shadow: 0 12px 28px rgba(168, 74, 90, 0.34);
     }
 
     .btn-secondary {
@@ -265,12 +314,26 @@
 
     .btn-action .btn-subtitle {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.79rem;
       font-weight: 500;
-      opacity: 0.9;
-      margin-top: 1px;
+      opacity: 0.92;
+      margin-top: 2px;
     }
 
+    .btn-arrow-icon {
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .btn-primary:hover .btn-arrow-icon {
+      transform: translateX(3px);
+    }
+
+    .btn-secondary:hover .btn-arrow-icon {
+      transform: translateY(3px);
+    }
+
+    /* CARDS DE SEÇÃO */
     .section-card {
       background: var(--bg-surface);
       border-radius: var(--radius-lg);
@@ -300,10 +363,11 @@
       letter-spacing: -0.01em;
     }
 
+    /* PASSO A PASSO */
     .steps-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       list-style: none;
     }
 
@@ -311,10 +375,16 @@
       display: flex;
       align-items: flex-start;
       gap: 14px;
-      padding: 12px;
-      background: #fafcfb;
+      padding: 14px;
+      background: #fffafa;
       border-radius: var(--radius-md);
-      border: 1px solid #edf4f0;
+      border: 1px solid var(--border-subtle);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .step-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-primary-border);
     }
 
     .step-badge {
@@ -345,6 +415,7 @@
       line-height: 1.45;
     }
 
+    /* MODALIDADES E LOCAIS */
     .modalities-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -358,12 +429,12 @@
     }
 
     .modality-card {
-      background: #fafcfb;
+      background: #fffafa;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 16px;
       text-align: left;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
     .modality-card:hover {
@@ -374,30 +445,172 @@
     .modality-card.full-width {
       grid-column: 1 / -1;
       background: var(--color-accent-soft);
-      border-color: #eedcc6;
+      border-color: #f0dccb;
     }
 
     .modality-icon {
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       margin-bottom: 8px;
       display: inline-block;
     }
 
     .modality-title {
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       font-weight: 700;
       color: var(--color-primary);
       margin-bottom: 4px;
     }
 
     .modality-desc {
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
+    /* SIMULADOR DINÂMICO DE PLANOS E VALORES */
+    .plans-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: var(--color-primary-soft);
+      padding: 6px;
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+      border: 1px solid var(--color-primary-border);
+    }
+
+    .plan-tab-btn {
+      font-family: inherit;
+      font-size: 0.86rem;
+      font-weight: 700;
+      padding: 11px 10px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .plan-tab-btn.active {
+      background: var(--bg-surface);
+      color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .group-filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .group-pill-btn {
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-primary-border);
+      background: #fffafa;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .group-pill-btn.active {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-color: var(--color-primary);
+    }
+
+    .price-note {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .price-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .price-item-card {
+      background: #fffafa;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .price-item-card:hover {
+      border-color: var(--color-primary-border);
+      transform: translateY(-2px);
+    }
+
+    .price-item-card.selected {
+      background: var(--color-primary-soft);
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .price-freq {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .price-val {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--color-primary);
+    }
+
+    .price-per {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    .btn-plan-whatsapp {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 16px;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      border: 1.5px solid var(--color-primary-border);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-plan-whatsapp:hover {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-color: var(--color-primary);
+    }
+
+    /* DEPOIMENTOS (Oculto até ter alunas) */
     .testimonial-card {
-      background: #fafcfb;
+      background: #fffafa;
       border-radius: var(--radius-md);
       padding: 18px;
       border-left: 4px solid var(--color-primary);
@@ -407,35 +620,7 @@
       margin-bottom: 12px;
     }
 
-    .testimonial-card:last-child {
-      margin-bottom: 0;
-    }
-
-    .testimonial-quote {
-      font-size: 0.9rem;
-      color: var(--text-main);
-      font-style: italic;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.82rem;
-    }
-
-    .author-name {
-      font-weight: 700;
-      color: var(--color-primary);
-    }
-
-    .author-condition {
-      color: var(--text-light);
-      font-size: 0.78rem;
-    }
-
+    /* FAQ ACCORDION */
     .accordion-group {
       display: flex;
       flex-direction: column;
@@ -452,7 +637,7 @@
 
     .faq-item.is-open {
       border-color: var(--color-primary-border);
-      background: #fbfdfc;
+      background: #fffafa;
     }
 
     .faq-trigger {
@@ -503,9 +688,10 @@
       line-height: 1.55;
     }
 
+    /* RODAPÉ */
     .footer-area {
       text-align: center;
-      padding: 24px 16px 12px;
+      padding: 20px 16px 12px;
       color: var(--text-light);
       font-size: 0.84rem;
     }
@@ -521,12 +707,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: var(--radius-full);
       background: var(--bg-surface);
       color: var(--color-primary);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--color-primary-border);
       text-decoration: none;
       box-shadow: var(--shadow-sm);
       transition: transform 0.2s, background-color 0.2s;
@@ -538,10 +724,11 @@
     }
 
     .copyright {
-      font-size: 0.78rem;
-      line-height: 1.4;
+      font-size: 0.79rem;
+      line-height: 1.5;
     }
 
+    /* BOTÃO FLUTUANTE DO WHATSAPP (INATIVO PARA FUTURO CHATBOT) */
     .float-whatsapp-wrap {
       position: fixed;
       bottom: 20px;
@@ -549,69 +736,29 @@
       z-index: 999;
       display: flex;
       align-items: center;
-      gap: 8px;
-    }
-
-    .float-tooltip {
-      background: #1e3a2d;
-      color: #ffffff;
-      font-size: 0.76rem;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: var(--radius-full);
-      box-shadow: var(--shadow-md);
       pointer-events: none;
-      animation: floatFade 4s ease-in-out infinite alternate;
-      display: none;
-    }
-
-    @media (min-width: 400px) {
-      .float-tooltip {
-        display: block;
-      }
-    }
-
-    @keyframes floatFade {
-      0% { opacity: 0.85; transform: translateY(0); }
-      100% { opacity: 1; transform: translateY(-4px); }
+      user-select: none;
     }
 
     .float-whatsapp-btn {
       width: 58px;
       height: 58px;
       border-radius: var(--radius-full);
-      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-      text-decoration: none;
-      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .float-whatsapp-btn:hover, .float-whatsapp-btn:focus-visible {
-      transform: scale(1.08);
-      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 6px 20px rgba(168, 74, 90, 0.35);
+      pointer-events: none;
+      cursor: default;
+      opacity: 0.92;
     }
 
     .float-whatsapp-btn svg {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       fill: currentColor;
-    }
-
-    /* Utilitários de acessibilidade */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
     }
   </style>
 </head>
@@ -619,62 +766,74 @@
   <div class="page-wrapper">
     
     <!-- HEADER / PERFIL -->
-    <header class="profile-card" itemscope itemtype="https://schema.org/Person">
+    <header class="profile-card reveal-section is-visible" itemscope itemtype="https://schema.org/Person">
       <div class="avatar-container">
         <img 
-          src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=400&q=80" 
-          alt="Foto de perfil profissional da Personal Trainer Dra. Camila Torres sorridente" 
+          src="https://placehold.co/240x240/fceef1/a84a5a?text=AS" 
+          alt="Foto de perfil profissional da Personal Trainer Amanda Saraiva" 
           class="avatar-img"
           itemprop="image"
-          onerror="this.src='https://placehold.co/240x240/2D5A46/ffffff?text=Camila+Torres'"
+          onerror="this.src='https://placehold.co/240x240/fceef1/a84a5a?text=AS'"
         >
-        <span class="verified-badge" title="Profissional Certificada">
+        <span class="verified-badge" title="Profissional Registrada no CREF">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </span>
       </div>
 
-      <h1 class="profile-name" itemprop="name">Dra. Camila Torres</h1>
-      <span class="cref-tag" itemprop="identifier">CREF 012345-G/CE</span>
+      <h1 class="profile-name" itemprop="name">Amanda Saraiva</h1>
+      <span class="cref-tag" itemprop="identifier">CREF 023211-G/CE</span>
       
       <p class="profile-title" itemprop="jobTitle">
-        Personal Trainer | Treinamento Funcional & Reabilitação
+        Personal Trainer | Treinamento Funcional
       </p>
 
       <p class="profile-desc" itemprop="description">
-        Treinos 100% individualizados e seguros. Devolvendo autonomia, alívio de dores articulares e disposição para idosos e pessoas em recuperação de lesões.
+        Treinos individualizados, respeitando seus objetivos e suas necessidades. Promovendo saúde, autonomia, mobilidade, força e disposição por meio do movimento, com foco no bem-estar e na qualidade de vida, especialmente para mulheres 40+ e pessoas idosas.
       </p>
 
-      <div class="tags-container" aria-label="Especialidades">
-        <span class="pill-tag">✦ Longevidade & Idosos</span>
-        <span class="pill-tag">✦ Sem Dores na Coluna / Joelho</span>
-        <span class="pill-tag">✦ Atendimento Domiciliar</span>
+      <div class="tags-container" aria-label="Especialidades - Toque para saber mais">
+        <button type="button" class="pill-tag" data-info="Acompanhamento acolhedor e seguro, pensado para as fases da mulher 40+ e para a longevidade ativa na terceira idade.">
+          ✦ Mulheres 40+ & Idosos
+        </button>
+        <button type="button" class="pill-tag" data-info="Exercícios planejados para fortalecer músculos e articulações, aumentando sua energia e disposição todos os dias.">
+          ✦ Saúde, Mobilidade & Força
+        </button>
+        <button type="button" class="pill-tag" data-info="Foco em movimentos funcionais que trazem mais independência, equilíbrio e segurança para a sua rotina.">
+          ✦ Autonomia & Bem-Estar
+        </button>
+        <button type="button" class="pill-tag" data-info="Cada treino é adaptado ao seu ritmo atual, respeitando a sua individualidade sem sobrecargas.">
+          ✦ Treinos Individualizados
+        </button>
       </div>
+
+      <div id="tagFeedbackBox" class="tag-feedback-box" role="status" aria-live="polite"></div>
     </header>
 
-    <section class="cta-stack" aria-label="Ações Principais">
-      <!-- Botão Primário WhatsApp -->
+    <!-- BOTÕES PRINCIPAIS DE AÇÃO -->
+    <section class="cta-stack reveal-section is-visible" aria-label="Ações Principais">
+      <!-- Botão Primário WhatsApp (Seta completa para a direita) -->
       <a 
-        href="#" 
+        href="https://wa.me/5588992474831?text=Ol%C3%A1%2C%20Amanda!%20Vim%20pelo%20seu%20link%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20aulas%20e%20agendar%20uma%20avalia%C3%A7%C3%A3o." 
         id="btnAgendarConsulta"
         class="btn-action btn-primary"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Agende sua avaliação ou consulta com a Dra. Camila pelo WhatsApp"
+        aria-label="Agende sua avaliação ou aula com Amanda Saraiva pelo WhatsApp"
       >
         <span class="btn-icon-left" aria-hidden="true">💬</span>
         <span class="btn-content">
-          <span>Agende sua Avaliação / Consulta</span>
+          <span>Agende sua Avaliação / Aula</span>
           <span class="btn-subtitle">Conversa inicial sem compromisso no WhatsApp</span>
         </span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg class="btn-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </a>
 
-      <!-- Botão Secundário Âncora/Informação -->
+      <!-- Botão Secundário Âncora (Seta completa apontando para baixo) -->
       <a 
         href="#modalidades-section" 
         class="btn-action btn-secondary"
@@ -683,17 +842,19 @@
         <span class="btn-icon-left" aria-hidden="true">📍</span>
         <span class="btn-content">
           <span>Locais & Formatos de Atendimento</span>
-          <span class="btn-subtitle">A domicílio, condomínio ou parceiros</span>
+          <span class="btn-subtitle">Academias em Forquilha e Sobral • Individual, Dupla ou Trio</span>
         </span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <polyline points="6 9 12 15 18 9"></polyline>
+        <svg class="btn-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19 12 12 19 5 12"></polyline>
         </svg>
       </a>
     </section>
 
-    <section class="section-card" aria-labelledby="como-funciona-title">
+    <!-- METODOLOGIA / COMO FUNCIONA -->
+    <section class="section-card reveal-section" aria-labelledby="como-funciona-title">
       <div class="section-header">
-        <p class="section-subtitle">Metodologia Segura</p>
+        <p class="section-subtitle">Cuidado em Cada Movimento</p>
         <h2 id="como-funciona-title" class="section-title">Como Funciona o Acompanhamento</h2>
       </div>
 
@@ -701,30 +862,31 @@
         <li class="step-item">
           <div class="step-badge" aria-hidden="true">1</div>
           <div class="step-info">
-            <h3>Anamnese e Avaliação Funcional</h3>
-            <p>Conversamos sobre seu histórico médico, cirurgias, exames, dores articulares e limitações de movimento atuais.</p>
+            <h3>Escuta Atenta e Avaliação Inicial</h3>
+            <p>Conversamos sobre a sua rotina, histórico de saúde, objetivos e necessidades para entender o que o seu corpo precisa.</p>
           </div>
         </li>
 
         <li class="step-item">
           <div class="step-badge" aria-hidden="true">2</div>
           <div class="step-info">
-            <h3>Plano 100% Adaptado ao Seu Ritmo</h3>
-            <p>Construção de uma rotina de exercícios com progressão gradual, focada em fortalecimento postural, equilíbrio e autonomia diária.</p>
+            <h3>Treino 100% Adaptado ao Seu Ritmo</h3>
+            <p>Planejamento focado em evolução gradual, desenvolvendo força, mobilidade, equilíbrio e autonomia com total segurança.</p>
           </div>
         </li>
 
         <li class="step-item">
           <div class="step-badge" aria-hidden="true">3</div>
           <div class="step-info">
-            <h3>Acompanhamento Rigoroso e Cuidadoso</h3>
-            <p>Correção minuciosa de cada postura em tempo real, garantindo segurança absoluta e zero sobrecarga desnecessária.</p>
+            <h3>Orientação Próxima e Acolhedora</h3>
+            <p>Acompanhamento atento na execução de cada exercício, garantindo confiança, postura correta e bem-estar.</p>
           </div>
         </li>
       </ol>
     </section>
 
-    <section id="modalidades-section" class="section-card" aria-labelledby="modalidades-title">
+    <!-- LOCAIS & FORMATOS DE ATENDIMENTO -->
+    <section id="modalidades-section" class="section-card reveal-section" aria-labelledby="modalidades-title">
       <div class="section-header">
         <p class="section-subtitle">Flexibilidade e Comodidade</p>
         <h2 id="modalidades-title" class="section-title">Locais & Horários de Atendimento</h2>
@@ -732,57 +894,81 @@
 
       <div class="modalities-grid">
         <div class="modality-card">
-          <div class="modality-icon" aria-hidden="true">🏡</div>
-          <h3 class="modality-title">A Domicílio / Condomínio</h3>
-          <p class="modality-desc">Levo os materiais necessários para a comodidade e privacidade do seu lar.</p>
+          <div class="modality-icon" aria-hidden="true">🏋️‍♀️</div>
+          <h3 class="modality-title">Academias Parceiras</h3>
+          <p class="modality-desc">Atendimento presencial em academias equipadas e acolhedoras em <strong>Forquilha e Sobral</strong>.</p>
         </div>
 
         <div class="modality-card">
-          <div class="modality-icon" aria-hidden="true">🏢</div>
-          <h3 class="modality-title">Espaço / Clínicas Parceiras</h3>
-          <p class="modality-desc">Ambientes equipados, climatizados e acessíveis para treino guiado.</p>
+          <div class="modality-icon" aria-hidden="true">🤝</div>
+          <h3 class="modality-title">Individual, Dupla ou Trio</h3>
+          <p class="modality-desc">Você escolhe treinar de forma exclusiva ou acompanhada de amigas e familiares.</p>
         </div>
 
         <div class="modality-card full-width">
           <div class="modality-icon" aria-hidden="true">⏰</div>
-          <h3 class="modality-title">Turnos Disponíveis (Vagas Limitadas)</h3>
-          <p class="modality-desc"><strong>Manhã:</strong> 06:30 às 11:30 | <strong>Tarde:</strong> 15:00 às 19:30.<br>Sessões particulares de 50 a 60 minutos com hora marcada.</p>
+          <h3 class="modality-title">Horário de Atendimento</h3>
+          <p class="modality-desc"><strong>De acordo com a disponibilidade.</strong><br>Consulte os turnos disponíveis em cada academia para encaixar o treino com tranquilidade na sua rotina.</p>
         </div>
       </div>
     </section>
 
-    <section class="section-card" aria-labelledby="depoimentos-title">
+    <!-- ELEMENTO DINÂMICO: CONSULTA RÁPIDA DE PLANOS E VALORES -->
+    <section id="planos-section" class="section-card reveal-section" aria-labelledby="planos-title">
+      <div class="section-header">
+        <p class="section-subtitle">Transparência e Praticidade</p>
+        <h2 id="planos-title" class="section-title">Planos & Frequência Semanal</h2>
+      </div>
+
+      <!-- Abas Principais: Funcional vs Personal -->
+      <div class="plans-tabs" role="tablist" aria-label="Escolha a modalidade">
+        <button type="button" class="plan-tab-btn active" data-category="funcional" role="tab" aria-selected="true">
+          Treinamento Funcional
+        </button>
+        <button type="button" class="plan-tab-btn" data-category="personal" role="tab" aria-selected="false">
+          Personal Trainer
+        </button>
+      </div>
+
+      <!-- Seletores de Formato: Individual, Dupla, Trio -->
+      <div class="group-filter-bar" id="groupFilterBar" aria-label="Escolha o formato de turma">
+        <button type="button" class="group-pill-btn active" data-group="individual">Individual</button>
+        <button type="button" class="group-pill-btn" data-group="dupla">Em Dupla</button>
+        <button type="button" class="group-pill-btn" data-group="trio" id="btnGroupTrio">Em Trio</button>
+      </div>
+
+      <p class="price-note" id="priceSubtitleNote">Selecione a frequência semanal para consultar disponibilidade:</p>
+
+      <!-- Grade Dinâmica de Preços -->
+      <div class="price-list" id="priceGrid"></div>
+
+      <!-- Botão que já envia o plano selecionado para o WhatsApp -->
+      <a 
+        href="#" 
+        id="btnPlanWhatsapp" 
+        class="btn-plan-whatsapp" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <span>Consultar horários para este plano</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </section>
+
+    <!-- HISTÓRIAS REAIS (OCULTO CONFORME SOLICITADO ATÉ TER DEPOIMENTOS DE ALUNAS) -->
+    <section id="depoimentos-section" class="section-card" aria-labelledby="depoimentos-title" hidden style="display: none;">
       <div class="section-header">
         <p class="section-subtitle">Histórias Reais de Superação</p>
-        <h2 id="depoimentos-title" class="section-title">O Que Dizem os Alunos</h2>
+        <h2 id="depoimentos-title" class="section-title">O Que Dizem as Alunas</h2>
       </div>
-
-      <div class="testimonial-card">
-        <p class="testimonial-quote">"Aos 71 anos, achava que as dores no joelho e o medo de cair eram definitivos. Com 3 meses de treino funcional guiado pela Camila, voltei a subir escadas e brincar com meus netos sem dor."</p>
-        <div class="testimonial-author">
-          <span class="author-name">Dona Lourdes M., 71 anos</span>
-          <span class="author-condition">Artrose e Fortalecimento</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <p class="testimonial-quote">"Tive uma hérnia de disco lombar grave e sentia medo de qualquer exercício. A atenção dela na postura e nos limites do meu corpo me devolveu a confiança para viver normalmente."</p>
-        <div class="testimonial-author">
-          <span class="author-name">Roberto Santos, 54 anos</span>
-          <span class="author-condition">Reabilitação de Coluna</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <p class="testimonial-quote">"Paciência, didática e pontualidade ímpar. Ela respeita o dia que estou mais cansada e adapta o treino sem forçar. Recomendo de olhos fechados!"</p>
-        <div class="testimonial-author">
-          <span class="author-name">Maria Helena, 68 anos</span>
-          <span class="author-condition">Atendimento Domiciliar</span>
-        </div>
-      </div>
+      <!-- Estrutura preservada e oculta para futura ativação -->
     </section>
 
-    <section class="section-card" aria-labelledby="faq-title">
+    <!-- PERGUNTAS FREQUENTES (FAQ) -->
+    <section class="section-card reveal-section" aria-labelledby="faq-title">
       <div class="section-header">
         <p class="section-subtitle">Tire suas Dúvidas</p>
         <h2 id="faq-title" class="section-title">Perguntas Frequentes</h2>
@@ -792,14 +978,14 @@
         <!-- FAQ 1 -->
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-1" id="faq-q-1">
-            <span>Nunca treinei ou já sou idoso(a), posso começar?</span>
+            <span>Estou parada há muito tempo ou já sou idosa, posso começar?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-body" id="faq-ans-1" role="region" aria-labelledby="faq-q-1">
             <div class="faq-content">
-              Sim, com certeza! O treinamento funcional terapêutico é especialmente desenhado para quem está há muito tempo parado ou na terceira idade. Começamos com movimentos naturais do dia a dia (sentar, levantar, equilibrar) com carga zero ou muito leve, no seu tempo.
+              Sim, com certeza! Tanto o treinamento funcional quanto a musculação personalizada são adaptados para quem está começando do zero ou na terceira idade. Iniciamos respeitando o seu condicionamento atual, trabalhando movimentos seguros e progressivos no seu tempo.
             </div>
           </div>
         </div>
@@ -807,14 +993,14 @@
         <!-- FAQ 2 -->
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-2" id="faq-q-2">
-            <span>Tenho dor no joelho ou hérnia de disco. É seguro treinar?</span>
+            <span>Tenho dores articulares ou limitações de movimento. É seguro?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-body" id="faq-ans-2" role="region" aria-labelledby="faq-q-2">
             <div class="faq-content">
-              O exercício bem orientado é hoje a principal recomendação médica para tratar e prevenir crises de coluna e artrose. Não realizamos movimentos de impacto ou risco; fortalecemos a musculatura de sustentação para tirar a sobrecarga da sua articulação.
+              O fortalecimento muscular orientado é essencial para proteger as articulações, melhorar a estabilidade e devolver autonomia no dia a dia. Todos os exercícios são escolhidos e ajustados para que você treine sem sobrecargas e com segurança.
             </div>
           </div>
         </div>
@@ -822,14 +1008,14 @@
         <!-- FAQ 3 -->
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-3" id="faq-q-3">
-            <span>Como funciona a primeira sessão ou avaliação?</span>
+            <span>Qual a diferença entre o Treinamento Funcional e o Personal?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-body" id="faq-ans-3" role="region" aria-labelledby="faq-q-3">
             <div class="faq-content">
-              Nosso primeiro encontro é focado em conversar: lemos seus exames e laudos, avaliamos sua mobilidade e flexibilidade básica, e realizamos testes leves para entender suas capacidades e definir metas sem desgaste excessivo.
+              O <strong>Treinamento Funcional</strong> foca em exercícios dinâmicos que trabalham coordenação, mobilidade, resistência e agilidade para o cotidiano. Já o <strong>Personal Trainer</strong> oferece um acompanhamento dedicado na musculação e exercícios específicos, com controle minucioso de cargas e aparelhos na academia.
             </div>
           </div>
         </div>
@@ -837,24 +1023,25 @@
         <!-- FAQ 4 -->
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-4" id="faq-q-4">
-            <span>Preciso ter pesos e aparelhos em casa?</span>
+            <span>Posso treinar sozinha ou acompanhada de uma amiga ou familiar?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-body" id="faq-ans-4" role="region" aria-labelledby="faq-q-4">
             <div class="faq-content">
-              Não se preocupe! Eu levo todos os elásticos terapêuticos (théra-bands), minibands, apoios de equilíbrio, colchonetes especiais e instrumentos necessários para a sessão diretamente na sua casa ou condomínio.
+              Você pode escolher! Contamos com planos para atendimento <strong>Individual</strong>, <strong>em Dupla</strong> ou <strong>em Trio</strong> (no Funcional). Treinar com uma amiga ou familiar é uma excelente forma de manter a motivação em alta com condições especiais por pessoa.
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- RODAPÉ COM DADOS REAIS -->
     <footer class="footer-area">
-      <nav class="social-links" aria-label="Redes Sociais">
+      <nav class="social-links" aria-label="Canais de Contato">
         <!-- Instagram -->
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Acessar Instagram da Personal">
+        <a href="https://instagram.com/teamamandasaraiva_" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Acessar Instagram @teamamandasaraiva_">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -863,7 +1050,7 @@
         </a>
 
         <!-- E-mail -->
-        <a href="mailto:contato@camilatorrespersonal.com.br" class="social-btn" aria-label="Enviar um e-mail">
+        <a href="mailto:saraivaamanda007@gmail.com" class="social-btn" aria-label="Enviar e-mail para saraivaamanda007@gmail.com">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
             <polyline points="22,6 12,13 2,6"></polyline>
@@ -871,7 +1058,7 @@
         </a>
 
         <!-- Telefone Direto -->
-        <a href="tel:+5588999999999" class="social-btn" aria-label="Ligar para o telefone de contato">
+        <a href="tel:+5588992474831" class="social-btn" aria-label="Ligar para (88) 99247-4831">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
           </svg>
@@ -879,131 +1066,271 @@
       </nav>
 
       <p class="copyright">
-        &copy; <span id="currentYear"></span> Dra. Camila Torres • CREF 012345-G/CE<br>
-        Saúde, mobilidade e longevidade com acompanhamento individual.
+        &copy; <span id="currentYear"></span> Amanda Saraiva • CREF 023211-G/CE<br>
+        Saúde, movimento e bem-estar • Forquilha e Sobral - CE
       </p>
     </footer>
 
   </div>
 
-  <div class="float-whatsapp-wrap">
-    <div class="float-tooltip">Agendar pelo WhatsApp</div>
-    <a 
-      href="#" 
-      id="floatWhatsApp" 
-      class="float-whatsapp-btn" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      aria-label="Abrir conversa no WhatsApp para agendamento de consulta"
-    >
+  <!-- BOTÃO FLUTUANTE INATIVO (Reservado para futura integração de Chatbot, sem tooltip e não clicável) -->
+  <div class="float-whatsapp-wrap" aria-hidden="true">
+    <div id="floatWhatsApp" class="float-whatsapp-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.106 8.106 0 0 1-1.24-4.29c0-4.5 3.66-8.16 8.16-8.16 2.18 0 4.23.85 5.77 2.39a8.103 8.103 0 0 1 2.39 5.77c0 4.5-3.66 8.16-8.16 8.16zm4.47-6.11c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
       </svg>
-    </a>
+    </div>
   </div>
 
   <script>
-    /**
-     * Interface de configuração para WhatsApp
-     */
-    interface WhatsAppConfig {
-      phoneNumber: string; // Formato internacional sem + ou traços (Ex: 5588999999999)
-      defaultMessage: string;
-    }
+    document.addEventListener('DOMContentLoaded', function () {
+      const WHATSAPP_NUMBER = '5588992474831';
 
-    /**
-     * Controlador da Página da Personal Trainer
-     */
-    class PersonalTrainerBioApp {
-      private config: WhatsAppConfig = {
-        phoneNumber: '5588999999999', // Substituir pelo número real
-        defaultMessage: 'Olá, Dra. Camila! Gostaria de agendar uma avaliação física e saber mais sobre o atendimento particular de treino funcional.'
+      // 1. Atualiza o ano do rodapé automaticamente
+      const yearElement = document.getElementById('currentYear');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear().toString();
+      }
+
+      // 2. Interação simples nas Tags do Perfil (Exibe explicação acolhedora ao tocar)
+      const pillTags = document.querySelectorAll('.pill-tag');
+      const feedbackBox = document.getElementById('tagFeedbackBox');
+
+      pillTags.forEach(function (tag) {
+        tag.addEventListener('click', function () {
+          const isAlreadyActive = tag.classList.contains('active');
+          pillTags.forEach(function (t) { t.classList.remove('active'); });
+
+          if (isAlreadyActive) {
+            feedbackBox.classList.remove('show');
+          } else {
+            tag.classList.add('active');
+            feedbackBox.textContent = tag.getAttribute('data-info') || '';
+            feedbackBox.classList.add('show');
+          }
+        });
+      });
+
+      // 3. Simulador Interativo de Planos e Valores (Baseado na Tabela Real da Amanda Saraiva)
+      const pricingData = {
+        funcional: {
+          label: 'Treinamento Funcional',
+          groups: {
+            individual: {
+              label: 'Individual',
+              perPersonNote: 'Valor mensal individual',
+              suffix: 'mensal',
+              items: [
+                { freq: '2x por semana', price: 'R$ 55,00' },
+                { freq: '3x por semana', price: 'R$ 65,00' },
+                { freq: '4x por semana', price: 'R$ 75,00' },
+                { freq: '5x por semana', price: 'R$ 85,00' }
+              ]
+            },
+            dupla: {
+              label: 'Em Dupla',
+              perPersonNote: 'Valor mensal por pessoa (Treino em Dupla)',
+              suffix: 'por pessoa',
+              items: [
+                { freq: '2x por semana', price: 'R$ 40,00' },
+                { freq: '3x por semana', price: 'R$ 50,00' },
+                { freq: '4x por semana', price: 'R$ 60,00' },
+                { freq: '5x por semana', price: 'R$ 70,00' }
+              ]
+            },
+            trio: {
+              label: 'Em Trio',
+              perPersonNote: 'Valor mensal por pessoa (Treino em Trio)',
+              suffix: 'por pessoa',
+              items: [
+                { freq: '2x por semana', price: 'R$ 35,00' },
+                { freq: '3x por semana', price: 'R$ 45,00' },
+                { freq: '4x por semana', price: 'R$ 50,00' },
+                { freq: '5x por semana', price: 'R$ 60,00' }
+              ]
+            }
+          }
+        },
+        personal: {
+          label: 'Personal Trainer',
+          groups: {
+            individual: {
+              label: 'Individual',
+              perPersonNote: 'Valor mensal individual',
+              suffix: 'mensal',
+              items: [
+                { freq: '2x por semana', price: 'R$ 200,00' },
+                { freq: '3x por semana', price: 'R$ 250,00' },
+                { freq: '4x por semana', price: 'R$ 300,00' },
+                { freq: '5x por semana', price: 'R$ 350,00' }
+              ]
+            },
+            dupla: {
+              label: 'Em Dupla',
+              perPersonNote: 'Valor mensal por pessoa (Personal em Dupla)',
+              suffix: 'por pessoa',
+              items: [
+                { freq: '2x por semana', price: 'R$ 150,00' },
+                { freq: '3x por semana', price: 'R$ 175,00' },
+                { freq: '4x por semana', price: 'R$ 200,00' },
+                { freq: '5x por semana', price: 'R$ 250,00' }
+              ]
+            }
+          }
+        }
       };
 
-      constructor() {
-        this.init();
-      }
+      let currentCategory = 'funcional';
+      let currentGroup = 'individual';
+      let selectedFreqIndex = 1; // Padrão: 3x por semana
 
-      public init(): void {
-        this.setupCurrentYear();
-        this.setupWhatsAppLinks();
-        this.setupAccordion();
-      }
+      const categoryButtons = document.querySelectorAll('.plan-tab-btn');
+      const groupButtons = document.querySelectorAll('.group-pill-btn');
+      const btnGroupTrio = document.getElementById('btnGroupTrio');
+      const priceGrid = document.getElementById('priceGrid');
+      const priceSubtitleNote = document.getElementById('priceSubtitleNote');
+      const btnPlanWhatsapp = document.getElementById('btnPlanWhatsapp');
 
-      /**
-       * Atualiza o ano no rodapé automaticamente
-       */
-      private setupCurrentYear(): void {
-        const yearElement = document.getElementById('currentYear');
-        if (yearElement) {
-          yearElement.textContent = new Date().getFullYear().toString();
-        }
-      }
-
-      /**
-       * Configura os botões de CTA com a URL codificada do WhatsApp
-       */
-      private setupWhatsAppLinks(): void {
-        const encodedMessage = encodeURIComponent(this.config.defaultMessage);
-        const waUrl = `https://wa.me/${this.config.phoneNumber}?text=${encodedMessage}`;
-
-        const btnAgendar = document.getElementById('btnAgendarConsulta') as HTMLAnchorElement | null;
-        const btnFloat = document.getElementById('floatWhatsApp') as HTMLAnchorElement | null;
-
-        if (btnAgendar) {
-          btnAgendar.href = waUrl;
+      function updatePlanSimulator() {
+        // Esconde a opção "Em Trio" caso esteja na aba Personal Trainer
+        if (currentCategory === 'personal') {
+          btnGroupTrio.style.display = 'none';
+          if (currentGroup === 'trio') {
+            currentGroup = 'individual';
+          }
+        } else {
+          btnGroupTrio.style.display = 'inline-block';
         }
 
-        if (btnFloat) {
-          btnFloat.href = waUrl;
-        }
-      }
+        // Atualiza estado visual dos botões de grupo
+        groupButtons.forEach(function (btn) {
+          if (btn.getAttribute('data-group') === currentGroup) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
 
-      /**
-       * Configura a lógica de acessibilidade e animação da sanfona FAQ
-       */
-      private setupAccordion(): void {
-        const triggers = document.querySelectorAll<HTMLButtonElement>('.faq-trigger');
+        const categoryObj = pricingData[currentCategory];
+        const groupObj = categoryObj.groups[currentGroup];
 
-        triggers.forEach((trigger) => {
-          trigger.addEventListener('click', () => {
-            const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-            const item = trigger.closest('.faq-item');
-            const body = item?.querySelector<HTMLElement>('.faq-body');
+        priceSubtitleNote.textContent = groupObj.perPersonNote;
+        priceGrid.innerHTML = '';
 
-            if (!item || !body) return;
+        groupObj.items.forEach(function (item, idx) {
+          const card = document.createElement('div');
+          card.className = 'price-item-card' + (idx === selectedFreqIndex ? ' selected' : '');
+          card.setAttribute('role', 'button');
+          card.setAttribute('tabindex', '0');
+          card.innerHTML =
+            '<span class="price-freq">' + item.freq + '</span>' +
+            '<span class="price-val">' + item.price + '</span>' +
+            '<span class="price-per">' + groupObj.suffix + '</span>';
 
-            // Fecha itens irmãos se desejar comportamento exclusivo (accordion único)
-            triggers.forEach((otherTrigger) => {
-              if (otherTrigger !== trigger) {
-                otherTrigger.setAttribute('aria-expanded', 'false');
-                const otherItem = otherTrigger.closest('.faq-item');
-                const otherBody = otherItem?.querySelector<HTMLElement>('.faq-body');
-                if (otherItem && otherBody) {
-                  otherItem.classList.remove('is-open');
-                  otherBody.style.maxHeight = '0px';
-                }
-              }
-            });
+          card.addEventListener('click', function () {
+            selectedFreqIndex = idx;
+            updatePlanSimulator();
+          });
 
-            // Alterna o item atual
-            if (isExpanded) {
-              trigger.setAttribute('aria-expanded', 'false');
-              item.classList.remove('is-open');
-              body.style.maxHeight = '0px';
-            } else {
-              trigger.setAttribute('aria-expanded', 'true');
-              item.classList.add('is-open');
-              body.style.maxHeight = body.scrollHeight + 'px';
+          card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              selectedFreqIndex = idx;
+              updatePlanSimulator();
             }
           });
+
+          priceGrid.appendChild(card);
+        });
+
+        const chosenItem = groupObj.items[selectedFreqIndex] || groupObj.items[0];
+        const customMessage =
+          'Olá, Amanda! Vi na sua página o plano de ' +
+          categoryObj.label +
+          ' (' + groupObj.label + ' - ' + chosenItem.freq + ' por ' + chosenItem.price + ') e gostaria de saber a disponibilidade de horários.';
+
+        btnPlanWhatsapp.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(customMessage);
+      }
+
+      categoryButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          categoryButtons.forEach(function (b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          currentCategory = btn.getAttribute('data-category') || 'funcional';
+          updatePlanSimulator();
+        });
+      });
+
+      groupButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          currentGroup = btn.getAttribute('data-group') || 'individual';
+          updatePlanSimulator();
+        });
+      });
+
+      updatePlanSimulator();
+
+      // 4. Sanfona FAQ (Accordion acessível em JS puro)
+      const faqTriggers = document.querySelectorAll('.faq-trigger');
+
+      faqTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          const item = trigger.closest('.faq-item');
+          const body = item ? item.querySelector('.faq-body') : null;
+
+          if (!item || !body) return;
+
+          // Fecha as outras perguntas abertas
+          faqTriggers.forEach(function (otherTrigger) {
+            if (otherTrigger !== trigger) {
+              otherTrigger.setAttribute('aria-expanded', 'false');
+              const otherItem = otherTrigger.closest('.faq-item');
+              const otherBody = otherItem ? otherItem.querySelector('.faq-body') : null;
+              if (otherItem && otherBody) {
+                otherItem.classList.remove('is-open');
+                otherBody.style.maxHeight = '0px';
+              }
+            }
+          });
+
+          // Alterna a pergunta clicada
+          if (isExpanded) {
+            trigger.setAttribute('aria-expanded', 'false');
+            item.classList.remove('is-open');
+            body.style.maxHeight = '0px';
+          } else {
+            trigger.setAttribute('aria-expanded', 'true');
+            item.classList.add('is-open');
+            body.style.maxHeight = body.scrollHeight + 'px';
+          }
+        });
+      });
+
+      // 5. Animação suave ao rolar a página (IntersectionObserver)
+      const revealSections = document.querySelectorAll('.reveal-section');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealSections.forEach(function (section) {
+          observer.observe(section);
+        });
+      } else {
+        revealSections.forEach(function (section) {
+          section.classList.add('is-visible');
         });
       }
-    }
-
-    // Inicialização segura após o carregamento da DOM
-    document.addEventListener('DOMContentLoaded', () => {
-      new PersonalTrainerBioApp();
     });
   </script>
 </body>
