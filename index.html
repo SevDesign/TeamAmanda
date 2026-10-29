@@ -730,11 +730,12 @@
 
     /* BOTÃO FLUTUANTE DO WHATSAPP (INATIVO PARA FUTURO CHATBOT) */
     .float-whatsapp-wrap {
+      display: none;
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 999;
-      display: flex;
+      /* display: flex; */
       align-items: center;
       pointer-events: none;
       user-select: none;
@@ -759,6 +760,91 @@
       width: 30px;
       height: 30px;
       fill: currentColor;
+    }
+
+    /* SELETOR DE CIDADE (FORQUILHA / SOBRAL) */
+    .city-selector-box {
+      background: #fffafa;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .city-step-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .city-switch-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .city-btn {
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px 10px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--color-primary-border);
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .city-btn.active {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .active-city-badge {
+      display: inline-block;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary-border);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 10px;
+    }
+
+    .btn-card-shortcut {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      background: var(--color-primary-soft);
+      border: 1px solid var(--color-primary-border);
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-card-shortcut:hover {
+      background: var(--color-primary);
+      color: #ffffff;
     }
   </style>
 </head>
@@ -894,33 +980,48 @@
 
       <div class="modalities-grid">
         <div class="modality-card">
-          <div class="modality-icon" aria-hidden="true">🏋️‍♀️</div>
-          <h3 class="modality-title">Academias Parceiras</h3>
-          <p class="modality-desc">Atendimento presencial em academias equipadas e acolhedoras em <strong>Forquilha e Sobral</strong>.</p>
+          <div class="modality-icon" aria-hidden="true">📍</div>
+          <h3 class="modality-title">Unidade Forquilha</h3>
+          <p class="modality-desc">Treinamento Funcional e Personal em academia parceira climatizada e acessível.</p>
+          <a href="#planos-section" class="btn-card-shortcut" data-select-city="forquilha">Ver valores de Forquilha ↓</a>
         </div>
 
         <div class="modality-card">
-          <div class="modality-icon" aria-hidden="true">🤝</div>
-          <h3 class="modality-title">Individual, Dupla ou Trio</h3>
-          <p class="modality-desc">Você escolhe treinar de forma exclusiva ou acompanhada de amigas e familiares.</p>
+          <div class="modality-icon" aria-hidden="true">📍</div>
+          <h3 class="modality-title">Unidade Sobral</h3>
+          <p class="modality-desc">Atendimento personalizado e turmas de funcional em estrutura completa.</p>
+          <a href="#planos-section" class="btn-card-shortcut" data-select-city="sobral">Ver valores de Sobral ↓</a>
         </div>
 
         <div class="modality-card full-width">
           <div class="modality-icon" aria-hidden="true">⏰</div>
-          <h3 class="modality-title">Horário de Atendimento</h3>
-          <p class="modality-desc"><strong>De acordo com a disponibilidade.</strong><br>Consulte os turnos disponíveis em cada academia para encaixar o treino com tranquilidade na sua rotina.</p>
+          <h3 class="modality-title">Formatos & Horários</h3>
+          <p class="modality-desc"><strong>Individual, Dupla ou Trio</strong> • Horários de acordo com a disponibilidade em cada cidade.</p>
         </div>
       </div>
     </section>
 
-    <!-- ELEMENTO DINÂMICO: CONSULTA RÁPIDA DE PLANOS E VALORES -->
+    <!-- ELEMENTO DINÂMICO: CONSULTA RÁPIDA DE PLANOS E VALORES POR CIDADE -->
     <section id="planos-section" class="section-card reveal-section" aria-labelledby="planos-title">
       <div class="section-header">
         <p class="section-subtitle">Transparência e Praticidade</p>
         <h2 id="planos-title" class="section-title">Planos & Frequência Semanal</h2>
       </div>
 
-      <!-- Abas Principais: Funcional vs Personal -->
+      <!-- PASSO 1: Escolha da Cidade -->
+      <div class="city-selector-box">
+        <span class="city-step-label">1. Onde você deseja treinar?</span>
+        <div class="city-switch-grid" role="group" aria-label="Escolha a cidade de atendimento">
+          <button type="button" class="city-btn active" data-city="forquilha">
+            📍 Forquilha
+          </button>
+          <button type="button" class="city-btn" data-city="sobral">
+            📍 Sobral
+          </button>
+        </div>
+      </div>
+
+      <!-- PASSO 2: Modalidade -->
       <div class="plans-tabs" role="tablist" aria-label="Escolha a modalidade">
         <button type="button" class="plan-tab-btn active" data-category="funcional" role="tab" aria-selected="true">
           Treinamento Funcional
@@ -930,19 +1031,22 @@
         </button>
       </div>
 
-      <!-- Seletores de Formato: Individual, Dupla, Trio -->
+      <!-- PASSO 3: Formato -->
       <div class="group-filter-bar" id="groupFilterBar" aria-label="Escolha o formato de turma">
         <button type="button" class="group-pill-btn active" data-group="individual">Individual</button>
         <button type="button" class="group-pill-btn" data-group="dupla">Em Dupla</button>
         <button type="button" class="group-pill-btn" data-group="trio" id="btnGroupTrio">Em Trio</button>
       </div>
 
+      <div style="text-align: center;">
+        <span class="active-city-badge" id="activeCityBadge">Exibindo valores para: Forquilha - CE</span>
+      </div>
       <p class="price-note" id="priceSubtitleNote">Selecione a frequência semanal para consultar disponibilidade:</p>
 
       <!-- Grade Dinâmica de Preços -->
       <div class="price-list" id="priceGrid"></div>
 
-      <!-- Botão que já envia o plano selecionado para o WhatsApp -->
+      <!-- Botão que já envia a cidade + plano selecionado para o WhatsApp -->
       <a 
         href="#" 
         id="btnPlanWhatsapp" 
@@ -950,7 +1054,7 @@
         target="_blank" 
         rel="noopener noreferrer"
       >
-        <span>Consultar horários para este plano</span>
+        <span id="btnPlanWhatsappText">Consultar horários em Forquilha</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
@@ -1086,13 +1190,13 @@
     document.addEventListener('DOMContentLoaded', function () {
       const WHATSAPP_NUMBER = '5588992474831';
 
-      // 1. Atualiza o ano do rodapé automaticamente
+      // 1. Ano atual no rodapé
       const yearElement = document.getElementById('currentYear');
       if (yearElement) {
         yearElement.textContent = new Date().getFullYear().toString();
       }
 
-      // 2. Interação simples nas Tags do Perfil (Exibe explicação acolhedora ao tocar)
+      // 2. Tags interativas do perfil
       const pillTags = document.querySelectorAll('.pill-tag');
       const feedbackBox = document.getElementById('tagFeedbackBox');
 
@@ -1111,88 +1215,177 @@
         });
       });
 
-      // 3. Simulador Interativo de Planos e Valores (Baseado na Tabela Real da Amanda Saraiva)
-      const pricingData = {
-        funcional: {
-          label: 'Treinamento Funcional',
-          groups: {
-            individual: {
-              label: 'Individual',
-              perPersonNote: 'Valor mensal individual',
-              suffix: 'mensal',
-              items: [
-                { freq: '2x por semana', price: 'R$ 55,00' },
-                { freq: '3x por semana', price: 'R$ 65,00' },
-                { freq: '4x por semana', price: 'R$ 75,00' },
-                { freq: '5x por semana', price: 'R$ 85,00' }
-              ]
+      // 3. Tabela de Preços separada por Cidade (Forquilha = Oficial | Sobral = Ajustada)
+      const pricingByCity = {
+        forquilha: {
+          cityName: 'Forquilha',
+          categories: {
+            funcional: {
+              label: 'Treinamento Funcional',
+              groups: {
+                individual: {
+                  label: 'Individual',
+                  perPersonNote: 'Valor mensal individual',
+                  suffix: 'mensal',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 55,00' },
+                    { freq: '3x por semana', price: 'R$ 65,00' },
+                    { freq: '4x por semana', price: 'R$ 75,00' },
+                    { freq: '5x por semana', price: 'R$ 85,00' }
+                  ]
+                },
+                dupla: {
+                  label: 'Em Dupla',
+                  perPersonNote: 'Valor mensal por pessoa (Treino em Dupla)',
+                  suffix: 'por pessoa',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 40,00' },
+                    { freq: '3x por semana', price: 'R$ 50,00' },
+                    { freq: '4x por semana', price: 'R$ 60,00' },
+                    { freq: '5x por semana', price: 'R$ 70,00' }
+                  ]
+                },
+                trio: {
+                  label: 'Em Trio',
+                  perPersonNote: 'Valor mensal por pessoa (Treino em Trio)',
+                  suffix: 'por pessoa',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 35,00' },
+                    { freq: '3x por semana', price: 'R$ 45,00' },
+                    { freq: '4x por semana', price: 'R$ 50,00' },
+                    { freq: '5x por semana', price: 'R$ 60,00' }
+                  ]
+                }
+              }
             },
-            dupla: {
-              label: 'Em Dupla',
-              perPersonNote: 'Valor mensal por pessoa (Treino em Dupla)',
-              suffix: 'por pessoa',
-              items: [
-                { freq: '2x por semana', price: 'R$ 40,00' },
-                { freq: '3x por semana', price: 'R$ 50,00' },
-                { freq: '4x por semana', price: 'R$ 60,00' },
-                { freq: '5x por semana', price: 'R$ 70,00' }
-              ]
-            },
-            trio: {
-              label: 'Em Trio',
-              perPersonNote: 'Valor mensal por pessoa (Treino em Trio)',
-              suffix: 'por pessoa',
-              items: [
-                { freq: '2x por semana', price: 'R$ 35,00' },
-                { freq: '3x por semana', price: 'R$ 45,00' },
-                { freq: '4x por semana', price: 'R$ 50,00' },
-                { freq: '5x por semana', price: 'R$ 60,00' }
-              ]
+            personal: {
+              label: 'Personal Trainer',
+              groups: {
+                individual: {
+                  label: 'Individual',
+                  perPersonNote: 'Valor mensal individual',
+                  suffix: 'mensal',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 200,00' },
+                    { freq: '3x por semana', price: 'R$ 250,00' },
+                    { freq: '4x por semana', price: 'R$ 300,00' },
+                    { freq: '5x por semana', price: 'R$ 350,00' }
+                  ]
+                },
+                dupla: {
+                  label: 'Em Dupla',
+                  perPersonNote: 'Valor mensal por pessoa (Personal em Dupla)',
+                  suffix: 'por pessoa',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 150,00' },
+                    { freq: '3x por semana', price: 'R$ 175,00' },
+                    { freq: '4x por semana', price: 'R$ 200,00' },
+                    { freq: '5x por semana', price: 'R$ 250,00' }
+                  ]
+                }
+              }
             }
           }
         },
-        personal: {
-          label: 'Personal Trainer',
-          groups: {
-            individual: {
-              label: 'Individual',
-              perPersonNote: 'Valor mensal individual',
-              suffix: 'mensal',
-              items: [
-                { freq: '2x por semana', price: 'R$ 200,00' },
-                { freq: '3x por semana', price: 'R$ 250,00' },
-                { freq: '4x por semana', price: 'R$ 300,00' },
-                { freq: '5x por semana', price: 'R$ 350,00' }
-              ]
+        sobral: {
+          cityName: 'Sobral',
+          categories: {
+            funcional: {
+              label: 'Treinamento Funcional',
+              groups: {
+                individual: {
+                  label: 'Individual',
+                  perPersonNote: 'Valor mensal individual',
+                  suffix: 'mensal',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 90,00' },
+                    { freq: '3x por semana', price: 'R$ 110,00' },
+                    { freq: '4x por semana', price: 'R$ 130,00' },
+                    { freq: '5x por semana', price: 'R$ 150,00' }
+                  ]
+                },
+                dupla: {
+                  label: 'Em Dupla',
+                  perPersonNote: 'Valor mensal por pessoa (Treino em Dupla)',
+                  suffix: 'por pessoa',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 75,00' },
+                    { freq: '3x por semana', price: 'R$ 90,00' },
+                    { freq: '4x por semana', price: 'R$ 105,00' },
+                    { freq: '5x por semana', price: 'R$ 120,00' }
+                  ]
+                },
+                trio: {
+                  label: 'Em Trio',
+                  perPersonNote: 'Valor mensal por pessoa (Treino em Trio)',
+                  suffix: 'por pessoa',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 65,00' },
+                    { freq: '3x por semana', price: 'R$ 80,00' },
+                    { freq: '4x por semana', price: 'R$ 95,00' },
+                    { freq: '5x por semana', price: 'R$ 110,00' }
+                  ]
+                }
+              }
             },
-            dupla: {
-              label: 'Em Dupla',
-              perPersonNote: 'Valor mensal por pessoa (Personal em Dupla)',
-              suffix: 'por pessoa',
-              items: [
-                { freq: '2x por semana', price: 'R$ 150,00' },
-                { freq: '3x por semana', price: 'R$ 175,00' },
-                { freq: '4x por semana', price: 'R$ 200,00' },
-                { freq: '5x por semana', price: 'R$ 250,00' }
-              ]
+            personal: {
+              label: 'Personal Trainer',
+              groups: {
+                individual: {
+                  label: 'Individual',
+                  perPersonNote: 'Valor mensal individual',
+                  suffix: 'mensal',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 300,00' },
+                    { freq: '3x por semana', price: 'R$ 380,00' },
+                    { freq: '4x por semana', price: 'R$ 450,00' },
+                    { freq: '5x por semana', price: 'R$ 520,00' }
+                  ]
+                },
+                dupla: {
+                  label: 'Em Dupla',
+                  perPersonNote: 'Valor mensal por pessoa (Personal em Dupla)',
+                  suffix: 'por pessoa',
+                  items: [
+                    { freq: '2x por semana', price: 'R$ 240,00' },
+                    { freq: '3x por semana', price: 'R$ 300,00' },
+                    { freq: '4x por semana', price: 'R$ 360,00' },
+                    { freq: '5x por semana', price: 'R$ 420,00' }
+                  ]
+                }
+              }
             }
           }
         }
       };
 
+      let currentCity = 'forquilha';
       let currentCategory = 'funcional';
       let currentGroup = 'individual';
       let selectedFreqIndex = 1; // Padrão: 3x por semana
 
+      const cityButtons = document.querySelectorAll('.city-btn');
+      const shortcutButtons = document.querySelectorAll('[data-select-city]');
       const categoryButtons = document.querySelectorAll('.plan-tab-btn');
       const groupButtons = document.querySelectorAll('.group-pill-btn');
       const btnGroupTrio = document.getElementById('btnGroupTrio');
+      const activeCityBadge = document.getElementById('activeCityBadge');
       const priceGrid = document.getElementById('priceGrid');
       const priceSubtitleNote = document.getElementById('priceSubtitleNote');
       const btnPlanWhatsapp = document.getElementById('btnPlanWhatsapp');
+      const btnPlanWhatsappText = document.getElementById('btnPlanWhatsappText');
 
       function updatePlanSimulator() {
-        // Esconde a opção "Em Trio" caso esteja na aba Personal Trainer
+        const cityObj = pricingByCity[currentCity];
+
+        cityButtons.forEach(function (btn) {
+          if (btn.getAttribute('data-city') === currentCity) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+
         if (currentCategory === 'personal') {
           btnGroupTrio.style.display = 'none';
           if (currentGroup === 'trio') {
@@ -1202,7 +1395,6 @@
           btnGroupTrio.style.display = 'inline-block';
         }
 
-        // Atualiza estado visual dos botões de grupo
         groupButtons.forEach(function (btn) {
           if (btn.getAttribute('data-group') === currentGroup) {
             btn.classList.add('active');
@@ -1211,9 +1403,10 @@
           }
         });
 
-        const categoryObj = pricingData[currentCategory];
+        const categoryObj = cityObj.categories[currentCategory];
         const groupObj = categoryObj.groups[currentGroup];
 
+        activeCityBadge.textContent = 'Exibindo valores para: ' + cityObj.cityName + ' - CE';
         priceSubtitleNote.textContent = groupObj.perPersonNote;
         priceGrid.innerHTML = '';
 
@@ -1244,13 +1437,29 @@
         });
 
         const chosenItem = groupObj.items[selectedFreqIndex] || groupObj.items[0];
+        btnPlanWhatsappText.textContent = 'Consultar horários em ' + cityObj.cityName;
+
         const customMessage =
-          'Olá, Amanda! Vi na sua página o plano de ' +
+          'Olá, Amanda! Vi na sua página o plano para *' + cityObj.cityName + '* de ' +
           categoryObj.label +
           ' (' + groupObj.label + ' - ' + chosenItem.freq + ' por ' + chosenItem.price + ') e gostaria de saber a disponibilidade de horários.';
 
         btnPlanWhatsapp.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(customMessage);
       }
+
+      cityButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          currentCity = btn.getAttribute('data-city') || 'forquilha';
+          updatePlanSimulator();
+        });
+      });
+
+      shortcutButtons.forEach(function (link) {
+        link.addEventListener('click', function () {
+          currentCity = link.getAttribute('data-select-city') || 'forquilha';
+          updatePlanSimulator();
+        });
+      });
 
       categoryButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -1274,18 +1483,15 @@
 
       updatePlanSimulator();
 
-      // 4. Sanfona FAQ (Accordion acessível em JS puro)
+      // 4. Sanfona FAQ
       const faqTriggers = document.querySelectorAll('.faq-trigger');
-
       faqTriggers.forEach(function (trigger) {
         trigger.addEventListener('click', function () {
           const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
           const item = trigger.closest('.faq-item');
           const body = item ? item.querySelector('.faq-body') : null;
-
           if (!item || !body) return;
 
-          // Fecha as outras perguntas abertas
           faqTriggers.forEach(function (otherTrigger) {
             if (otherTrigger !== trigger) {
               otherTrigger.setAttribute('aria-expanded', 'false');
@@ -1298,7 +1504,6 @@
             }
           });
 
-          // Alterna a pergunta clicada
           if (isExpanded) {
             trigger.setAttribute('aria-expanded', 'false');
             item.classList.remove('is-open');
@@ -1311,7 +1516,7 @@
         });
       });
 
-      // 5. Animação suave ao rolar a página (IntersectionObserver)
+      // 5. Animação suave ao rolar a página
       const revealSections = document.querySelectorAll('.reveal-section');
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function (entries) {
