@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#a84a5a">
+  <meta name="description" content="Woman A-Z | Moda Fitness Feminina em Forquilha e Sobral. Conforto, zero transparência e estilo para o seu treino.">
+  <title>Woman A-Z | Moda Fitness Feminina</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-primary: #a84a5a;
+      --color-primary-light: #c86b7b;
+      --color-primary-soft: #fceef1;
+      --color-primary-border: #f0cfd6;
+      --color-accent: #b57c56;
+      --color-accent-soft: #fdf5ef;
+
+      --bg-page: #fdfaf9;
+      --bg-surface: #ffffff;
+      --text-main: #2b1d20;
+      --text-muted: #634f53;
+      --text-light: #8a7378;
+      --border-subtle: #f3e4e7;
+
+      --shadow-sm: 0 2px 8px rgba(168, 74, 90, 0.05);
+      --shadow-md: 0 10px 24px rgba(168, 74, 90, 0.09);
+      --shadow-lg: 0 -6px 24px rgba(43, 29, 32, 0.12);
+
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      --container-max-w: 520px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-page);
+      background-image: radial-gradient(circle at 50% 0%, #fceef1 0%, transparent 60%);
+      color: var(--text-main);
+      line-height: 1.5;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 16px 12px 120px;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: var(--container-max-w);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* TOP BAR VOLTAR */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-decoration: none;
+      background: var(--bg-surface);
+      padding: 8px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-primary-border);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .btn-back:hover {
+      background: var(--color-primary-soft);
+      transform: translateX(-2px);
+    }
+
+    /* HEADER DA LOJA */
+    .store-header {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px 22px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .store-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 76px;
+      background: linear-gradient(135deg, var(--color-primary-soft) 0%, #f7dce2 100%);
+      z-index: 0;
+    }
+
+    .logo-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 12px;
+      z-index: 1;
+    }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      border: 4px solid var(--bg-surface);
+      box-shadow: var(--shadow-md);
+      background: var(--color-primary-soft);
+    }
+
+    .store-name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+
+    .store-tag {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-accent);
+      background: var(--color-accent-soft);
+      padding: 3px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 10px;
+      border: 1px solid #f0dccb;
+    }
+
+    .store-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    /* SEÇÃO PADRÃO */
+    .section-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--color-primary);
+    }
+
+    /* FILTROS PADRONIZADOS (SEGMENTED CONTROL) */
+    .segmented-control {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+      background: var(--color-primary-soft);
+      padding: 5px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-primary-border);
+      margin-bottom: 18px;
+    }
+
+    .seg-btn {
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 9px 4px;
+      border-radius: var(--radius-sm);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .seg-btn.active {
+      background: var(--bg-surface);
+      color: var(--color-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* GRADE DO CATÁLOGO */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 360px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .product-card {
+      background: #fffafa;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .product-card.is-selected {
+      border-color: var(--color-primary);
+      background: var(--color-primary-soft);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .product-img-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 115%;
+      background: #f5e6e8;
+      overflow: hidden;
+    }
+
+    .product-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--color-primary);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .product-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 8px;
+    }
+
+    .product-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .product-price {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--color-primary);
+    }
+
+    /* SELETOR DE TAMANHO */
+    .size-selector {
+      display: flex;
+      gap: 4px;
+      margin-top: auto;
+    }
+
+    .size-btn {
+      flex: 1;
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 0;
+      border-radius: 6px;
+      border: 1px solid var(--color-primary-border);
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .size-btn.active {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-color: var(--color-primary);
+    }
+
+    /* BOTÃO CHECKBOX DO CARD */
+    .btn-toggle-item {
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 9px 8px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--color-primary);
+      background: var(--bg-surface);
+      color: var(--color-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .product-card.is-selected .btn-toggle-item {
+      background: var(--color-primary);
+      color: #ffffff;
+    }
+
+    /* INFORMAÇÕES DE COMPRA E ENTREGA */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      background: #fffafa;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .info-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .info-text h3 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 2px;
+    }
+
+    .info-text p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* RODAPÉ */
+    .footer-area {
+      text-align: center;
+      padding: 16px 12px;
+      color: var(--text-light);
+      font-size: 0.8rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary-border);
+      text-decoration: none;
+    }
+
+    /* BARRA FLUTUANTE DO CARRINHO / WHATSAPP */
+    .sticky-cart-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-surface);
+      border-top: 1.5px solid var(--color-primary-border);
+      box-shadow: var(--shadow-lg);
+      padding: 12px 16px;
+      z-index: 1000;
+      transform: translateY(110%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      justify-content: center;
+    }
+
+    .sticky-cart-bar.visible {
+      transform: translateY(0);
+    }
+
+    .sticky-cart-inner {
+      width: 100%;
+      max-width: var(--container-max-w);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .cart-summary {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-count {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .cart-total {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-primary);
+    }
+
+    .btn-send-order {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 16px rgba(168, 74, 90, 0.28);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- NAVEGAÇÃO DE RETORNO -->
+    <nav class="top-nav" aria-label="Navegação superior">
+      <a href="index.html" class="btn-back">
+        ← Voltar para Personal Trainer
+      </a>
+    </nav>
+
+    <!-- HEADER WOMAN A-Z -->
+    <header class="store-header">
+      <div class="logo-wrap">
+        <img 
+          src="logo_woman_az.jpeg" 
+          alt="Logo Woman A-Z Moda Fitness" 
+          class="logo-img"
+          onerror="this.src='https://placehold.co/200x200/fceef1/a84a5a?text=Woman+A-Z'"
+        >
+      </div>
+      <h1 class="store-name">Woman A-Z</h1>
+      <span class="store-tag">Moda Fitness Feminina</span>
+      <p class="store-desc">
+        Peças selecionadas com alta compressão, zero transparência e conforto absoluto para valorizar o seu treino do início ao fim.
+      </p>
+    </header>
+
+    <!-- CATÁLOGO INTERATIVO -->
+    <section class="section-card" aria-labelledby="catalogo-title">
+      <div class="section-header">
+        <p class="section-subtitle">Toque nas peças para montar sua lista</p>
+        <h2 id="catalogo-title" class="section-title">Catálogo Disponível</h2>
+      </div>
+
+      <!-- Filtro de Categorias Padronizado -->
+      <div class="segmented-control" role="tablist" aria-label="Filtrar roupas por categoria">
+        <button type="button" class="seg-btn active" data-filter="todos">Todos</button>
+        <button type="button" class="seg-btn" data-filter="conjuntos">Conjuntos</button>
+        <button type="button" class="seg-btn" data-filter="leggings">Leggings</button>
+        <button type="button" class="seg-btn" data-filter="tops">Tops/Shorts</button>
+      </div>
+
+      <!-- Grade de Produtos -->
+      <div class="catalog-grid" id="catalogGrid"></div>
+    </section>
+
+    <!-- COMO FUNCIONA A COMPRA / LOCAIS DE ENTREGA -->
+    <section class="section-card" aria-labelledby="entrega-title">
+      <div class="section-header">
+        <p class="section-subtitle">Praticidade</p>
+        <h2 id="entrega-title" class="section-title">Entrega & Pagamento</h2>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-icon" aria-hidden="true">📍</span>
+          <div class="info-text">
+            <h3>Forquilha e Sobral</h3>
+            <p>Entregamos em mãos nas academias parceiras durante os horários de aula ou via entrega combinada no WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span class="info-icon" aria-hidden="true">💳</span>
+          <div class="info-text">
+            <h3>Formas de Pagamento</h3>
+            <p>Aceitamos Pix, dinheiro e cartões de crédito/débito com parcelamento facilitado.</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span class="info-icon" aria-hidden="true">✨</span>
+          <div class="info-text">
+            <h3>Consultoria de Cores e Tamanhos</h3>
+            <p>Marque os modelos que gostou acima e enviaremos fotos das cores disponíveis no seu tamanho pelo WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer-area">
+      <div class="social-links">
+        <a href="https://instagram.com/woman_az" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Woman A-Z">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://wa.me/5588992474831" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp Woman A-Z">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </a>
+      </div>
+      <p>&copy; <span id="currentYear"></span> Woman A-Z • Por Amanda Saraiva<br>Forquilha e Sobral - CE</p>
+    </footer>
+
+  </div>
+
+  <!-- BARRA FIXA DE FECHAMENTO DO PEDIDO -->
+  <div class="sticky-cart-bar" id="stickyCartBar" role="region" aria-label="Resumo das peças selecionadas">
+    <div class="sticky-cart-inner">
+      <div class="cart-summary">
+        <span class="cart-count" id="cartCountText">0 peças selecionadas</span>
+        <span class="cart-total" id="cartTotalText">R$ 0,00</span>
+      </div>
+      <a href="#" id="btnSendOrder" class="btn-send-order" target="_blank" rel="noopener noreferrer">
+        <span>Pedir no WhatsApp</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const WHATSAPP_NUMBER = '5588992474831';
+      document.getElementById('currentYear').textContent = new Date().getFullYear().toString();
+
+      // Lista de produtos (Substitua pelas fotos e preços reais da Woman A-Z)
+      const products = [
+        {
+          id: 'p1',
+          name: 'Conjunto Canelado Premium',
+          category: 'conjuntos',
+          price: 119.90,
+          badge: 'Mais Vendido',
+          img: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=500&q=80'
+        },
+        {
+          id: 'p2',
+          name: 'Conjunto Short + Top Nadador',
+          category: 'conjuntos',
+          price: 99.90,
+          badge: 'Novo',
+          img: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=500&q=80'
+        },
+        {
+          id: 'p3',
+          name: 'Legging Cintura Alta Zero Transparência',
+          category: 'leggings',
+          price: 79.90,
+          badge: 'Alta Compressão',
+          img: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=500&q=80'
+        },
+        {
+          id: 'p4',
+          name: 'Legging Poliamida Confort',
+          category: 'leggings',
+          price: 89.90,
+          badge: 'Toque Macio',
+          img: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=500&q=80'
+        },
+        {
+          id: 'p5',
+          name: 'Top Sustentação Duplo',
+          category: 'tops',
+          price: 49.90,
+          badge: 'Conforto',
+          img: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=500&q=80'
+        },
+        {
+          id: 'p6',
+          name: 'Short Empina Bumbum Sem Costura',
+          category: 'tops',
+          price: 59.90,
+          badge: 'Modelador',
+          img: 'https://images.unsplash.com/photo-1548690312-e3b507d8c110?auto=format&fit=crop&w=500&q=80'
+        }
+      ];
+
+      // Estado dos itens selecionados: { [id]: { selected: boolean, size: 'M' } }
+      const selectionState = {};
+      products.forEach(function (p) {
+        selectionState[p.id] = { selected: false, size: 'M' };
+      });
+
+      let currentFilter = 'todos';
+      const catalogGrid = document.getElementById('catalogGrid');
+      const filterButtons = document.querySelectorAll('[data-filter]');
+      const stickyCartBar = document.getElementById('stickyCartBar');
+      const cartCountText = document.getElementById('cartCountText');
+      const cartTotalText = document.getElementById('cartTotalText');
+      const btnSendOrder = document.getElementById('btnSendOrder');
+
+      function formatBRL(value) {
+        return 'R$ ' + value.toFixed(2).replace('.', ',');
+      }
+
+      function renderCatalog() {
+        catalogGrid.innerHTML = '';
+
+        const filtered = products.filter(function (p) {
+          return currentFilter === 'todos' || p.category === currentFilter;
+        });
+
+        filtered.forEach(function (product) {
+          const state = selectionState[product.id];
+          const card = document.createElement('article');
+          card.className = 'product-card' + (state.selected ? ' is-selected' : '');
+
+          const sizesHtml = ['P', 'M', 'G', 'GG'].map(function (sz) {
+            const activeClass = state.size === sz ? ' active' : '';
+            return '<button type="button" class="size-btn' + activeClass + '" data-size="' + sz + '">' + sz + '</button>';
+          }).join('');
+
+          card.innerHTML =
+            '<div class="product-img-wrap">' +
+              '<img src="' + product.img + '" alt="' + product.name + '" class="product-img" loading="lazy">' +
+              '<span class="product-badge">' + product.badge + '</span>' +
+            '</div>' +
+            '<div class="product-body">' +
+              '<h3 class="product-title">' + product.name + '</h3>' +
+              '<span class="product-price">' + formatBRL(product.price) + '</span>' +
+              '<div class="size-selector" aria-label="Escolha o tamanho">' + sizesHtml + '</div>' +
+              '<button type="button" class="btn-toggle-item">' +
+                (state.selected ? '✓ Selecionado' : '+ Quero este') +
+              '</button>' +
+            '</div>';
+
+          // Evento de troca de tamanho
+          const sizeBtns = card.querySelectorAll('.size-btn');
+          sizeBtns.forEach(function (sBtn) {
+            sBtn.addEventListener('click', function () {
+              state.size = sBtn.getAttribute('data-size') || 'M';
+              renderCatalog();
+              updateCartBar();
+            });
+          });
+
+          // Evento de marcar/desmarcar peça
+          const toggleBtn = card.querySelector('.btn-toggle-item');
+          toggleBtn.addEventListener('click', function () {
+            state.selected = !state.selected;
+            renderCatalog();
+            updateCartBar();
+          });
+
+          catalogGrid.appendChild(card);
+        });
+      }
+
+      function updateCartBar() {
+        const selectedProducts = products.filter(function (p) {
+          return selectionState[p.id].selected;
+        });
+
+        if (selectedProducts.length === 0) {
+          stickyCartBar.classList.remove('visible');
+          return;
+        }
+
+        let total = 0;
+        const lines = selectedProducts.map(function (p) {
+          total += p.price;
+          const sz = selectionState[p.id].size;
+          return '• ' + p.name + ' (Tam: ' + sz + ') - ' + formatBRL(p.price);
+        });
+
+        cartCountText.textContent = selectedProducts.length + (selectedProducts.length === 1 ? ' peça selecionada' : ' peças selecionadas');
+        cartTotalText.textContent = formatBRL(total);
+
+        const message =
+          'Olá, Amanda! Vim pelo catálogo da *Woman A-Z* e me interessei por estas peças:\n\n' +
+          lines.join('\n') +
+          '\n\n*Total estimado:* ' + formatBRL(total) +
+          '\nPoderia me mostrar as cores disponíveis?';
+
+        btnSendOrder.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+        stickyCartBar.classList.add('visible');
+      }
+
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterButtons.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentFilter = btn.getAttribute('data-filter') || 'todos';
+          renderCatalog();
+        });
+      });
+
+      renderCatalog();
+    });
+  </script>
+</body>
+</html>

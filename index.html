@@ -467,70 +467,42 @@
       line-height: 1.45;
     }
 
-    /* SIMULADOR DINÂMICO DE PLANOS E VALORES */
-    .plans-tabs {
+/* CONTROLES SEGMENTADOS PADRONIZADOS (CIDADE, MODALIDADE E FORMATO) */
+    .simulator-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .segmented-control {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+      gap: 6px;
       background: var(--color-primary-soft);
-      padding: 6px;
+      padding: 5px;
       border-radius: var(--radius-md);
-      margin-bottom: 16px;
       border: 1px solid var(--color-primary-border);
     }
 
-    .plan-tab-btn {
+    .seg-btn {
       font-family: inherit;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 700;
-      padding: 11px 10px;
+      padding: 10px 8px;
       border-radius: var(--radius-sm);
       border: none;
       background: transparent;
       color: var(--text-muted);
       cursor: pointer;
       transition: all 0.2s ease;
+      text-align: center;
     }
 
-    .plan-tab-btn.active {
+    .seg-btn.active {
       background: var(--bg-surface);
       color: var(--color-primary);
       box-shadow: var(--shadow-sm);
-    }
-
-    .group-filter-bar {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .group-pill-btn {
-      font-family: inherit;
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--color-primary-border);
-      background: #fffafa;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .group-pill-btn.active {
-      background: var(--color-primary);
-      color: #ffffff;
-      border-color: var(--color-primary);
-    }
-
-    .price-note {
-      text-align: center;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--color-accent);
-      margin-bottom: 12px;
     }
 
     .price-list {
@@ -846,6 +818,17 @@
       background: var(--color-primary);
       color: #ffffff;
     }
+
+    .btn-store {
+      background: var(--color-accent-soft);
+      color: #8c5632;
+      border-color: #ecd5c0;
+    }
+
+    .btn-store:hover, .btn-store:focus-visible {
+      background: #f7e6d7;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body>
@@ -935,6 +918,23 @@
           <polyline points="19 12 12 19 5 12"></polyline>
         </svg>
       </a>
+
+      <!-- 3º Botão: Loja de Roupas Fit -->
+      <a 
+        href="woman.html" 
+        class="btn-action btn-store"
+        aria-label="Conhecer a loja de roupas fitness femininas"
+      >
+        <span class="btn-icon-left" aria-hidden="true">🛍️</span>
+        <span class="btn-content">
+          <span>Moda Fitness Feminina</span>
+          <span class="btn-subtitle">Veja o catálogo de looks de treino e peça pelo WhatsApp</span>
+        </span>
+        <svg class="btn-arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
     </section>
 
     <!-- METODOLOGIA / COMO FUNCIONA -->
@@ -1004,49 +1004,35 @@
     <!-- ELEMENTO DINÂMICO: CONSULTA RÁPIDA DE PLANOS E VALORES POR CIDADE -->
     <section id="planos-section" class="section-card reveal-section" aria-labelledby="planos-title">
       <div class="section-header">
-        <p class="section-subtitle">Transparência e Praticidade</p>
+        <p class="section-subtitle">Investimento</p>
         <h2 id="planos-title" class="section-title">Planos & Frequência Semanal</h2>
       </div>
 
-      <!-- PASSO 1: Escolha da Cidade -->
-      <div class="city-selector-box">
-        <span class="city-step-label">1. Onde você deseja treinar?</span>
-        <div class="city-switch-grid" role="group" aria-label="Escolha a cidade de atendimento">
-          <button type="button" class="city-btn active" data-city="forquilha">
-            📍 Forquilha
-          </button>
-          <button type="button" class="city-btn" data-city="sobral">
-            📍 Sobral
-          </button>
+      <div class="simulator-controls">
+        <!-- 1. Cidade -->
+        <div class="segmented-control" role="group" aria-label="Cidade">
+          <button type="button" class="seg-btn city-btn active" data-city="forquilha">📍 Forquilha</button>
+          <button type="button" class="seg-btn city-btn" data-city="sobral">📍 Sobral</button>
+        </div>
+
+        <!-- 2. Modalidade -->
+        <div class="segmented-control" role="tablist" aria-label="Modalidade">
+          <button type="button" class="seg-btn plan-tab-btn active" data-category="funcional" role="tab" aria-selected="true">Treinamento Funcional</button>
+          <button type="button" class="seg-btn plan-tab-btn" data-category="personal" role="tab" aria-selected="false">Personal Trainer</button>
+        </div>
+
+        <!-- 3. Formato -->
+        <div class="segmented-control" id="groupFilterBar" role="group" aria-label="Formato">
+          <button type="button" class="seg-btn group-pill-btn active" data-group="individual">Individual</button>
+          <button type="button" class="seg-btn group-pill-btn" data-group="dupla">Em Dupla</button>
+          <button type="button" class="seg-btn group-pill-btn" data-group="trio" id="btnGroupTrio">Em Trio</button>
         </div>
       </div>
-
-      <!-- PASSO 2: Modalidade -->
-      <div class="plans-tabs" role="tablist" aria-label="Escolha a modalidade">
-        <button type="button" class="plan-tab-btn active" data-category="funcional" role="tab" aria-selected="true">
-          Treinamento Funcional
-        </button>
-        <button type="button" class="plan-tab-btn" data-category="personal" role="tab" aria-selected="false">
-          Personal Trainer
-        </button>
-      </div>
-
-      <!-- PASSO 3: Formato -->
-      <div class="group-filter-bar" id="groupFilterBar" aria-label="Escolha o formato de turma">
-        <button type="button" class="group-pill-btn active" data-group="individual">Individual</button>
-        <button type="button" class="group-pill-btn" data-group="dupla">Em Dupla</button>
-        <button type="button" class="group-pill-btn" data-group="trio" id="btnGroupTrio">Em Trio</button>
-      </div>
-
-      <div style="text-align: center;">
-        <span class="active-city-badge" id="activeCityBadge">Exibindo valores para: Forquilha - CE</span>
-      </div>
-      <p class="price-note" id="priceSubtitleNote">Selecione a frequência semanal para consultar disponibilidade:</p>
 
       <!-- Grade Dinâmica de Preços -->
       <div class="price-list" id="priceGrid"></div>
 
-      <!-- Botão que já envia a cidade + plano selecionado para o WhatsApp -->
+      <!-- Botão WhatsApp -->
       <a 
         href="#" 
         id="btnPlanWhatsapp" 
@@ -1379,35 +1365,23 @@
         const cityObj = pricingByCity[currentCity];
 
         cityButtons.forEach(function (btn) {
-          if (btn.getAttribute('data-city') === currentCity) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
+          btn.classList.toggle('active', btn.getAttribute('data-city') === currentCity);
         });
 
         if (currentCategory === 'personal') {
           btnGroupTrio.style.display = 'none';
-          if (currentGroup === 'trio') {
-            currentGroup = 'individual';
-          }
+          if (currentGroup === 'trio') currentGroup = 'individual';
         } else {
-          btnGroupTrio.style.display = 'inline-block';
+          btnGroupTrio.style.display = 'block';
         }
 
         groupButtons.forEach(function (btn) {
-          if (btn.getAttribute('data-group') === currentGroup) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
+          btn.classList.toggle('active', btn.getAttribute('data-group') === currentGroup);
         });
 
         const categoryObj = cityObj.categories[currentCategory];
         const groupObj = categoryObj.groups[currentGroup];
 
-        activeCityBadge.textContent = 'Exibindo valores para: ' + cityObj.cityName + ' - CE';
-        priceSubtitleNote.textContent = groupObj.perPersonNote;
         priceGrid.innerHTML = '';
 
         groupObj.items.forEach(function (item, idx) {
@@ -1423,14 +1397,6 @@
           card.addEventListener('click', function () {
             selectedFreqIndex = idx;
             updatePlanSimulator();
-          });
-
-          card.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              selectedFreqIndex = idx;
-              updatePlanSimulator();
-            }
           });
 
           priceGrid.appendChild(card);
