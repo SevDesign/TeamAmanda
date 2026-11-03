@@ -25,7 +25,7 @@
       --color-whatsapp-dark: #128c7e;
 
       /* Escala neutra quente de alto contraste (WCAG AAA/AA) */
-      --bg-page: #fdfaf9;
+      --bg-page: #fefbfa;
       --bg-surface: #ffffff;
       --bg-surface-elevated: #ffffff;
       --text-main: #2b1d20;
@@ -109,7 +109,7 @@
       left: 0;
       right: 0;
       height: 88px;
-      background: linear-gradient(135deg, var(--color-primary-soft) 0%, #f7dce2 100%);
+      background: linear-gradient(260deg, var(--color-primary-soft) 0%, #f1d4da 100%);
       z-index: 0;
     }
 
@@ -700,102 +700,7 @@
       line-height: 1.5;
     }
 
-    /* BOTÃO FLUTUANTE DO WHATSAPP (INATIVO PARA FUTURO CHATBOT) */
-    .float-whatsapp-wrap {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      /* display: flex; */
-      align-items: center;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .float-whatsapp-btn {
-      width: 58px;
-      height: 58px;
-      border-radius: var(--radius-full);
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 20px rgba(168, 74, 90, 0.35);
-      pointer-events: none;
-      cursor: default;
-      opacity: 0.92;
-    }
-
-    .float-whatsapp-btn svg {
-      width: 30px;
-      height: 30px;
-      fill: currentColor;
-    }
-
-    /* SELETOR DE CIDADE (FORQUILHA / SOBRAL) */
-    .city-selector-box {
-      background: #fffafa;
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 14px;
-      margin-bottom: 18px;
-      text-align: center;
-    }
-
-    .city-step-label {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .city-switch-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .city-btn {
-      font-family: inherit;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 12px 10px;
-      border-radius: var(--radius-sm);
-      border: 1.5px solid var(--color-primary-border);
-      background: var(--bg-surface);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .city-btn.active {
-      background: var(--color-primary);
-      color: #ffffff;
-      border-color: var(--color-primary);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .active-city-badge {
-      display: inline-block;
-      background: var(--color-primary-soft);
-      color: var(--color-primary);
-      border: 1px solid var(--color-primary-border);
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      margin-bottom: 10px;
-    }
-
+/* ATALHOS DOS CARDS E BOTÃO LOJA */
     .btn-card-shortcut {
       margin-top: 10px;
       display: inline-flex;
@@ -829,6 +734,325 @@
       background: #f7e6d7;
       transform: translateY(-2px);
     }
+
+/* WIDGET DE CHAT IA - ESTILO WHATSAPP (AMIGÁVEL E RECONHECÍVEL) */
+    .float-whatsapp-wrap {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      pointer-events: auto;
+    }
+
+    /* Balão de notificação dinâmico e convidativo */
+    .chat-teaser-bubble {
+      position: relative;
+      background: #ffffff;
+      color: var(--text-main);
+      padding: 12px 18px;
+      border-radius: 20px 20px 4px 20px;
+      box-shadow: 0 12px 32px rgba(37, 211, 102, 0.18);
+      border: 1px solid #e5e7eb;
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 14px;
+      max-width: 260px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(12px) scale(0.95);
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: bottom right;
+    }
+
+    .chat-teaser-bubble.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .chat-teaser-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      animation: wave 2.5s infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      10% { transform: rotate(14deg); }
+      20% { transform: rotate(-8deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+      60% { transform: rotate(0deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* Botão Flutuante Verde WhatsApp */
+    .float-whatsapp-btn {
+      position: relative;
+      width: 62px;
+      height: 62px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff;
+      border: 3px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.35);
+      cursor: pointer;
+      pointer-events: auto;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    }
+
+    .float-whatsapp-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 16px 34px rgba(37, 211, 102, 0.45);
+    }
+
+    .float-status-badge {
+      position: absolute;
+      top: 0;
+      right: 2px;
+      width: 14px;
+      height: 14px;
+      background: #ff4757; /* Vermelho notificação chamativa */
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      animation: pulseAlert 2s infinite;
+    }
+
+    @keyframes pulseAlert {
+      0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
+      70% { box-shadow: 0 0 0 6px rgba(255, 71, 87, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+    }
+
+    .float-whatsapp-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    /* Janela do Chat */
+    .chat-widget-window {
+      position: fixed;
+      bottom: 98px;
+      right: 22px;
+      width: calc(100vw - 32px);
+      max-width: 370px;
+      height: 520px;
+      max-height: calc(100vh - 120px);
+      background: var(--bg-surface);
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 48px rgba(18, 140, 126, 0.22);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1001;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px) scale(0.96);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: bottom right;
+    }
+
+    .chat-widget-window.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+      color: #ffffff;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .chat-header-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-full);
+      background: #ffffff;
+      color: #128C7E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+    }
+
+    .chat-header-text h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .chat-header-text span {
+      font-size: 0.78rem;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .chat-header-text span::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+    }
+
+    .chat-close-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: #ffffff;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: background 0.2s;
+    }
+
+    .chat-close-btn:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 16px 16px 32px 16px;
+      overflow-y: auto;
+      background: #efeae2; /* Fundo clássico do chat WhatsApp */
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chat-bubble {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      word-wrap: break-word;
+      position: relative;
+    }
+
+    .chat-bubble a {
+      color: #0369a1;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .chat-bubble.bot {
+      align-self: flex-start;
+      background: #ffffff;
+      color: var(--text-main);
+      border-top-left-radius: 2px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-bubble.user {
+      align-self: flex-end;
+      background: #dcf8c6; /* Cor do balão do usuário no WhatsApp */
+      color: var(--text-main);
+      border-top-right-radius: 2px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-typing {
+      font-size: 0.8rem;
+      color: #64748b;
+      font-style: italic;
+      padding: 0 16px 8px;
+      background: #efeae2;
+      display: none;
+    }
+
+    .chat-typing.show {
+      display: block;
+    }
+
+    .chat-input-area {
+      padding: 12px;
+      background: #f0f2f5;
+      display: flex;
+      gap: 8px;
+    }
+
+    .chat-input {
+      flex: 1;
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 12px 16px;
+      border: none;
+      border-radius: var(--radius-full);
+      outline: none;
+      color: var(--text-main);
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .chat-input:focus {
+      box-shadow: 0 1px 4px rgba(37, 211, 102, 0.4);
+    }
+
+    .chat-send-btn {
+      background: #25D366;
+      color: #ffffff;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .chat-send-btn:hover {
+      background: #128C7E;
+    }
+    
+    .chat-send-btn:active {
+      transform: scale(0.95);
+    }
+
+    .chat-send-btn:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
   </style>
 </head>
 <body>
@@ -838,7 +1062,7 @@
     <header class="profile-card reveal-section is-visible" itemscope itemtype="https://schema.org/Person">
       <div class="avatar-container">
         <img 
-          src="foto_profissional.jpeg" 
+          src="/imagens/foto_profissional.jpeg" 
           alt="Foto de perfil profissional da Personal Trainer Amanda Saraiva" 
           class="avatar-img"
           itemprop="image"
@@ -1163,13 +1387,66 @@
 
   </div>
 
-  <!-- BOTÃO FLUTUANTE INATIVO (Reservado para futura integração de Chatbot, sem tooltip e não clicável) -->
-  <div class="float-whatsapp-wrap" aria-hidden="true">
-    <div id="floatWhatsApp" class="float-whatsapp-btn">
-      <svg viewBox="0 0 24 24">
+  <!-- WIDGET DE CHAT IA FLUTUANTE -->
+  <div class="float-whatsapp-wrap">
+    <div id="chatWidgetWindow" class="chat-widget-window" role="dialog" aria-label="Assistente Virtual Amanda Saraiva" aria-hidden="true">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar" aria-hidden="true">🤖</div>
+          <div class="chat-header-text">
+            <h3>Assistente da Amanda</h3>
+            <span>Online agora</span>
+          </div>
+        </div>
+        <button type="button" id="chatCloseBtn" class="chat-close-btn" aria-label="Fechar conversa">✕</button>
+      </div>
+
+      <div id="chatMessages" class="chat-messages" aria-live="polite">
+        <div class="chat-bubble bot">
+          Olá! 👋 Sou o assistente inteligente da Personal Amanda Saraiva. <br><br>Gostaria de saber os valores ou horários das aulas em Forquilha ou Sobral?
+        </div>
+      </div>
+
+      <div id="chatTypingIndicator" class="chat-typing">Assistente digitando...</div>
+
+      <form id="chatForm" class="chat-input-area">
+        <input 
+          type="text" 
+          id="chatInput" 
+          class="chat-input" 
+          placeholder="Mensagem..." 
+          autocomplete="off"
+          required
+        >
+        <button type="submit" id="chatSendBtn" class="chat-send-btn" aria-label="Enviar mensagem">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- Balão de Notificação Temporário Chamativo -->
+    <div id="chatTeaserBubble" class="chat-teaser-bubble" role="status" aria-live="polite">
+      <span class="chat-teaser-icon" aria-hidden="true">👋</span>
+      <span>Oi! Tem alguma dúvida sobre os treinos? Fale comigo!</span>
+    </div>
+
+    <!-- Botão Principal (WhatsApp Color) -->
+    <button 
+      type="button" 
+      id="floatChatToggleBtn" 
+      class="float-whatsapp-btn" 
+      aria-label="Abrir assistente de dúvidas"
+      aria-expanded="false"
+    >
+      <span class="float-status-badge" aria-hidden="true"></span>
+      <!-- Ícone oficial do WhatsApp -->
+      <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.106 8.106 0 0 1-1.24-4.29c0-4.5 3.66-8.16 8.16-8.16 2.18 0 4.23.85 5.77 2.39a8.103 8.103 0 0 1 2.39 5.77c0 4.5-3.66 8.16-8.16 8.16zm4.47-6.11c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/>
       </svg>
-    </div>
+    </button>
   </div>
 
   <script>
@@ -1502,6 +1779,129 @@
           section.classList.add('is-visible');
         });
       }
+
+// 6. Lógica do Chatbot, Notificação Automática e Integração com Backend (api/chat.php)
+      const CHAT_API_ENDPOINT = '/api/chat.php';
+      const chatHistory = [];
+
+      const floatChatToggleBtn = document.getElementById('floatChatToggleBtn');
+      const chatTeaserBubble = document.getElementById('chatTeaserBubble');
+      const chatCloseBtn = document.getElementById('chatCloseBtn');
+      const chatWidgetWindow = document.getElementById('chatWidgetWindow');
+      const chatForm = document.getElementById('chatForm');
+      const chatInput = document.getElementById('chatInput');
+      const chatSendBtn = document.getElementById('chatSendBtn');
+      const chatMessages = document.getElementById('chatMessages');
+      const chatTypingIndicator = document.getElementById('chatTypingIndicator');
+
+      let teaserTimeoutShow;
+      let teaserTimeoutHide;
+
+      // Exibe o balão após 2s e esconde após 8s
+      teaserTimeoutShow = setTimeout(function () {
+        if (!chatWidgetWindow.classList.contains('is-open')) {
+          chatTeaserBubble.classList.add('show');
+          teaserTimeoutHide = setTimeout(function () {
+            chatTeaserBubble.classList.remove('show');
+          }, 8000);
+        }
+      }, 2000);
+
+      function toggleChatWindow() {
+        const isOpen = chatWidgetWindow.classList.toggle('is-open');
+        chatWidgetWindow.setAttribute('aria-hidden', (!isOpen).toString());
+        floatChatToggleBtn.setAttribute('aria-expanded', isOpen.toString());
+
+        // Esconde o balão de notificação assim que o usuário interagir
+        chatTeaserBubble.classList.remove('show');
+        clearTimeout(teaserTimeoutShow);
+        clearTimeout(teaserTimeoutHide);
+
+        if (isOpen) {
+          setTimeout(function () { chatInput.focus(); }, 150);
+        }
+      }
+
+      floatChatToggleBtn.addEventListener('click', toggleChatWindow);
+      chatTeaserBubble.addEventListener('click', toggleChatWindow);
+      chatCloseBtn.addEventListener('click', toggleChatWindow);
+
+      // Converte URLs em links clicáveis de forma segura contra XSS
+      function appendMessageBubble(text, sender) {
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble ' + sender;
+
+        const escaped = text
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+
+        const withLinks = escaped.replace(
+          /(https?:\/\/[^\s]+)/g,
+          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+
+        bubble.innerHTML = withLinks.replace(/\n/g, '<br>');
+        chatMessages.appendChild(bubble);
+
+        // Aguarda a renderização do DOM para rolar até o fim real
+        setTimeout(function() {
+          chatMessages.scrollTo({
+            top: chatMessages.scrollHeight,
+            behavior: 'smooth'
+          });
+        }, 50);
+      }
+
+      chatForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const userMessage = chatInput.value.trim();
+        if (!userMessage) return;
+
+        appendMessageBubble(userMessage, 'user');
+        chatInput.value = '';
+        chatSendBtn.disabled = true;
+        chatTypingIndicator.classList.add('show');
+
+        chatHistory.push({
+          role: 'user',
+          parts: [{ text: userMessage }]
+        });
+
+        try {
+          const response = await fetch(CHAT_API_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              message: userMessage,
+              history: chatHistory.slice(-10)
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error('Falha na resposta do servidor');
+          }
+
+          const data = await response.json();
+          const botReply = data.reply || 'Desculpe, não consegui processar sua dúvida agora.';
+
+          appendMessageBubble(botReply, 'bot');
+
+          chatHistory.push({
+            role: 'model',
+            parts: [{ text: botReply }]
+          });
+        } catch (error) {
+          appendMessageBubble(
+            'No momento estou indisponível. Você pode falar diretamente com a Amanda pelo WhatsApp: https://wa.me/5588992474831',
+            'bot'
+          );
+        } finally {
+          chatTypingIndicator.classList.remove('show');
+          chatSendBtn.disabled = false;
+          chatInput.focus();
+        }
+      });
     });
   </script>
 </body>
